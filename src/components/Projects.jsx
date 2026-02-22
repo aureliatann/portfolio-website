@@ -1,8 +1,11 @@
 export default function Projects() {
   return (
-    <section id="projects" className="p-8 space-y-6">
+    <section id="projects" className="px-4 py-6 lg:px-6 lg:py-6 space-y-6">
       {/* Heading */}
-      <h2 className="text-3xl font-bold text-gray-900">Projects</h2>
+      <h2 className="text-center text-3xl font-bold text-gray-900">Projects</h2>
+      <p className="text-center text-gray-600 leading-relaxed">
+        Here’s a showcase of my personal projects in web development, game design, and data analysis. Each project highlights the tools I've used and the skills I've developed along the way.
+      </p>
 
       {/* Project 1: Event Registration Portal */}
       <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
