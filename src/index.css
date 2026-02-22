@@ -1,1 +1,4 @@
 @import "tailwindcss";
+/* reads HTML and JSX files */
+/* class names (e.g. text-2xl, p-4, etc) */
+/* generates CSS based on classes, applies globally */
