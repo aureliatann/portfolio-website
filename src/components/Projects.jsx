@@ -5,7 +5,7 @@ export default function Projects() {
     <section id="projects" className="px-4 py-6 lg:px-2 lg:py-6 space-y-6">
       <h2 className="text-center text-3xl font-bold text-gray-900">Projects</h2>
       <p className="text-center text-gray-600 leading-relaxed">
-        Here’s a showcase of my personal projects in web development, game design, and data analysis.
+        Here’s a showcase of my personal projects, each highlighting the tools I’ve used that have helped refine my skillset and shaped me into the developer I am today.
       </p>
 
       {/* ---------------- Project 1: Event Registration Portal ---------------- */}
@@ -58,7 +58,7 @@ export default function Projects() {
         subtitle="Data Essay on a Kaggle Dataset"
         description="Analyzed public datasets with Python, conducting text analysis and interpreting results through a social science lens."
         role="Author and Programmer"
-        tools={["Python", "Pandas", "Seaborn", "NLTK", "Quatro", "Jupyter"]}
+        tools={["Python", "Pandas", "Seaborn", "NLTK", "Jupyter"]}
         thumb="/images/dataessay-thumb.png"
         video="/videos/dataessay.mp4"
       />
