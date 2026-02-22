@@ -1,184 +1,119 @@
+import { useRef } from "react";
+
 export default function Projects() {
   return (
     <section id="projects" className="px-4 py-6 lg:px-6 lg:py-6 space-y-6">
-      {/* Heading */}
       <h2 className="text-center text-3xl font-bold text-gray-900">Projects</h2>
       <p className="text-center text-gray-600 leading-relaxed">
-        Here’s a showcase of my personal projects in web development, game design, and data analysis. Each project highlights the tools I've used and the skills I've developed along the way.
+        Here’s a showcase of my personal projects in web development, game design, and data analysis.
       </p>
 
-      {/* Project 1: Event Registration Portal */}
-      <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
-        <div className="flex flex-col sm:flex-row sm:gap-6">
-          {/* Placeholder */}
-          <div className="w-full sm:w-1/3 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 sm:mb-0">
-            <span className="text-gray-400">Video/Image Placeholder</span>
-          </div>
+      {/* ---------------- Project 1: Event Registration Portal ---------------- */}
+      <ProjectWithVideo
+        title="Event Registration Portal"
+        subtitle="Website for The Forum 2026, Organized by MUISA"
+        description="Developed and deployed a Django portal to streamline event registration and ticketing via automated emails."
+        role="Full-Stack Developer"
+        tools={["Django", "Python", "JavaScript", "HTML/CSS"]}
+        thumb="/images/theforum-thumb.png"
+        video="" // leave empty if no video yet
+      />
 
-          {/* Project info */}
-          <div className="flex-1 space-y-3">
-            {/* Name & Role */}
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-              <div>
-                <h3 className="font-semibold text-lg">Event Registration Portal</h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  Website for The Forum 2026, Organized by MUISA
-                </p>
-              </div>
-              <p className="text-sm text-gray-800 font-medium">Full-Stack Developer</p>
-            </div>
+      {/* ---------------- Project 2: Personal Portfolio ---------------- */}
+      <ProjectWithVideo
+        title="Personal Portfolio"
+        subtitle="Website"
+        description="Developed an interactive portfolio website with React to display personal expertise."
+        role="Front-End Developer"
+        tools={["React", "Tailwind CSS", "JavaScript", "HTML/CSS"]}
+        thumb="/images/portfolio-thumb.png"
+        video="" // leave empty if no video yet
+      />
 
-            {/* Skill badges */}
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Django", "Python", "JavaScript", "HTML/CSS"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+      {/* ---------------- Project 3: Overgrown ---------------- */}
+      <ProjectWithVideo
+        title="Overgrown"
+        subtitle="2D RPG Game for CISSAxGMC Game Jam 2025"
+        description="Designed art and UI assets and developed level layouts in Unity by managing prefabs and scene architecture."
+        role="Designer"
+        tools={["Unity"]}
+        thumb="/images/overgrown-thumb.jpg"
+        video="/videos/overgrown.mp4"
+      />
 
-            {/* Description */}
-            <p className="text-gray-600 mt-2">
-              Developed and deployed a Django portal to streamline event registration and ticketing via automated emails.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* ---------------- Project 4: Shadow Donkey Kong ---------------- */}
+      <ProjectWithVideo
+        title="Shadow Donkey Kong"
+        subtitle="2D Platformer Game"
+        description="Applied OOP in Java to develop a platformer with responsive player controls, game mechanics, and gravity physics."
+        role="Programmer"
+        tools={["Java"]}
+        thumb="/images/donkeykong-thumb.png"
+        video="/videos/donkeykong.mp4"
+      />
 
-      {/* Project 2: Personal Portfolio */}
-      <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
-        <div className="flex flex-col sm:flex-row sm:gap-6">
-          <div className="w-full sm:w-1/3 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 sm:mb-0">
-            <span className="text-gray-400">Video/Image Placeholder</span>
-          </div>
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-              <div>
-                <h3 className="font-semibold text-lg">Personal Portfolio</h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  Website
-                </p>
-              </div>
-              <p className="text-sm text-gray-800 font-medium">Front-End Developer</p>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["React", "Tailwind CSS", "JavaScript", "HTML/CSS"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-2">
-              Developed an interactive portfolio website with React to display personal expertise.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 3: Overgrown */}
-      <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
-        <div className="flex flex-col sm:flex-row sm:gap-6">
-          <div className="w-full sm:w-1/3 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 sm:mb-0">
-            <span className="text-gray-400">Video/Image Placeholder</span>
-          </div>
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-              <div>
-                <h3 className="font-semibold text-lg">Overgrown</h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  2D RPG Game for CISSAxGMC Game Jam 2025
-                </p>
-              </div>
-              <p className="text-sm text-gray-800 font-medium">Designer</p>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Unity"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-2">
-              Designed art and UI assets and developed level layouts in Unity by managing prefabs and scene architecture.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 4: Shadow Donkey Kong */}
-      <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
-        <div className="flex flex-col sm:flex-row sm:gap-6">
-          <div className="w-full sm:w-1/3 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 sm:mb-0">
-            <span className="text-gray-400">Video/Image Placeholder</span>
-          </div>
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-              <div>
-                <h3 className="font-semibold text-lg">Shadow Donkey Kong</h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  2D Platformer Game
-                </p>
-              </div>
-              <p className="text-sm text-gray-800 font-medium">Programmer</p>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Java"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-2">
-              Applied OOP in Java to develop a platformer with responsive player controls, game mechanics, and gravity physics.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 5: Language of Deception */}
-      <div className="p-6 border border-gray-200 rounded-xl text-gray-700">
-        <div className="flex flex-col sm:flex-row sm:gap-6">
-          <div className="w-full sm:w-1/3 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4 sm:mb-0">
-            <span className="text-gray-400">Video/Image Placeholder</span>
-          </div>
-          <div className="flex-1 space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-              <div>
-                <h3 className="font-semibold text-lg">Language of Deception</h3>
-                <p className="text-sm text-gray-500 mt-0.5">
-                  Data Essay on a Kaggle Dataset
-                </p>
-              </div>
-              <p className="text-sm text-gray-800 font-medium">Author and Programmer</p>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {["Python", "Pandas", "Seaborn", "NLTK", "Quatro", "Jupyter"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-2">
-              Analyzed public datasets with Python, conducting text analysis and interpreting results through a social science lens.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* ---------------- Project 5: Language of Deception ---------------- */}
+      <ProjectWithVideo
+        title="Language of Deception"
+        subtitle="Data Essay on a Kaggle Dataset"
+        description="Analyzed public datasets with Python, conducting text analysis and interpreting results through a social science lens."
+        role="Author and Programmer"
+        tools={["Python", "Pandas", "Seaborn", "NLTK", "Quatro", "Jupyter"]}
+        thumb="/images/dataessay-thumb.png"
+        video="/videos/dataessay.mp4"
+      />
     </section>
+  );
+}
+
+// Reusable hover-video project component
+function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, video }) {
+  const videoRef = useRef(null);
+
+  return (
+    <div className="p-6 border border-gray-200 rounded-xl text-gray-700 group">
+      <div className="flex flex-col sm:flex-row sm:gap-6">
+        {/* Video + Thumbnail */}
+        <div
+          className="w-full sm:w-1/3 h-48 rounded-lg overflow-hidden relative cursor-pointer"
+          onMouseEnter={() => videoRef.current && videoRef.current.play()}
+          onMouseLeave={() => videoRef.current && videoRef.current.pause()}
+        >
+          <img src={thumb} alt={`${title} thumbnail`} className="w-full h-full object-cover" />
+          <video
+            ref={videoRef}
+            src={video}
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          />
+        </div>
+
+        {/* Project info */}
+        <div className="flex-1 space-y-3">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+            <div>
+              <h3 className="font-semibold text-lg">{title}</h3>
+              <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>
+            </div>
+            <p className="text-sm text-gray-800 font-medium">{role}</p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mt-2">
+            {tools.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <p className="text-gray-600 mt-2">{description}</p>
+        </div>
+      </div>
+    </div>
   );
 }

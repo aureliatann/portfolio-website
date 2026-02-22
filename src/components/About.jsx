@@ -7,9 +7,13 @@ export default function About() {
       {/* Flex container: column on mobile, row on small screens and up */}
       <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6">
 
-        {/* Picture placeholder */}
-        <div className="w-64 h-64 sm:w-56 sm:h-56 lg:w-60 lg:h-60 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center">
-          <span className="text-gray-400">Your Photo</span>
+        {/* Profile Image */}
+        <div className="w-64 h-64 sm:w-56 sm:h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden flex-shrink-0">
+          <img
+            src="/images/profile.jpg"
+            alt="Aurelia Tan"
+            className="w-full h-full object-cover"
+          />
         </div>
 
         {/* Intro text */}
@@ -27,8 +31,8 @@ export default function About() {
           <div className="flex justify-center sm:justify-start gap-6 mt-2 text-2xl">
             <a
               href="https://www.linkedin.com/in/aurelia-tan-32a504329"
-              target="_blank" // opens in new tab
-              rel="noopener noreferrer" // hides referrer info (prevents security risks)
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-500 hover:text-gray-600 transition-colors duration-200"
             >
               <FaLinkedin />
