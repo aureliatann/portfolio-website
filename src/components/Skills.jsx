@@ -1,6 +1,6 @@
 export default function Skills() {
   return (
-    <section id="skills" className="text-center px-4 py-6 lg:px-6 lg:py-6 space-y-6">
+    <section id="skills" className="text-center px-4 py-6 lg:px-2 lg:py-6 space-y-6">
       {/* Heading */}
       <h2 className="text-center text-3xl font-bold text-gray-900">Skills</h2>
       <p className="text-center text-gray-600 leading-relaxed">

@@ -2,7 +2,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export default function About() {
   return (
-    <section id="about" className="px-4 py-6 lg:px-6 lg:py-6 space-y-6">
+    <section id="about" cclassName="px-4 py-6 lg:px-2 lg:py-6 space-y-6">
 
       {/* Flex container: column on mobile, row on small screens and up */}
       <div className="flex flex-col sm:flex-row items-center sm:items-center gap-6">

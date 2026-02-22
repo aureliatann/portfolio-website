@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-4 py-6 lg:px-6 lg:py-6 space-y-6">
+    <section id="projects" className="px-4 py-6 lg:px-2 lg:py-6 space-y-6">
       <h2 className="text-center text-3xl font-bold text-gray-900">Projects</h2>
       <p className="text-center text-gray-600 leading-relaxed">
         Here’s a showcase of my personal projects in web development, game design, and data analysis.
@@ -71,35 +71,37 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
   const videoRef = useRef(null);
 
   return (
-    <div className="p-6 border border-gray-200 rounded-xl text-gray-700 group">
+    <div
+      className="p-6 border border-gray-200 rounded-xl text-gray-700 group cursor-pointer"
+      onMouseEnter={() => videoRef.current && videoRef.current.play()}
+      onMouseLeave={() => videoRef.current && videoRef.current.pause()}
+    >
       <div className="flex flex-col sm:flex-row sm:gap-6">
         {/* Video + Thumbnail */}
-        <div
-          className="w-full sm:w-1/3 h-48 rounded-lg overflow-hidden relative cursor-pointer"
-          onMouseEnter={() => videoRef.current && videoRef.current.play()}
-          onMouseLeave={() => videoRef.current && videoRef.current.pause()}
-        >
+        <div className="w-full sm:w-2/5 h-70 sm:h-48 rounded-lg overflow-hidden flex-shrink-0 relative">
           <img src={thumb} alt={`${title} thumbnail`} className="w-full h-full object-cover" />
-          <video
-            ref={videoRef}
-            src={video}
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          />
+          {video && (
+            <video
+              ref={videoRef}
+              src={video}
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+          )}
         </div>
 
         {/* Project info */}
-        <div className="flex-1 space-y-3">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
-            <div>
-              <h3 className="font-semibold text-lg">{title}</h3>
-              <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>
-            </div>
-            <p className="text-sm text-gray-800 font-medium">{role}</p>
+        <div className="flex-1 mt-4 sm:mt-0 space-y-2">
+          {/* Title, Subtitle, Role stacked */}
+          <div>
+            <h3 className="font-semibold text-lg">{title}</h3>
+            <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>
+            <p className="text-sm text-gray-800 font-medium mt-1">{role}</p>
           </div>
 
+          {/* Tools */}
           <div className="flex flex-wrap gap-2 mt-2">
             {tools.map((tech) => (
               <span
@@ -111,6 +113,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
             ))}
           </div>
 
+          {/* Description */}
           <p className="text-gray-600 mt-2">{description}</p>
         </div>
       </div>
