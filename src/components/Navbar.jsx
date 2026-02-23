@@ -15,7 +15,7 @@ export default function Navbar() {
     bg-white → white background
     shadow-sm → small shadow under navbar
     */
-    <nav className="w-full bg-white shadow-sm">
+    <nav className="w-full bg-white shadow-sm sticky top-0 z-50">
        {/* (THIS IS INSIDE JSX, commenting is different)
         NOTE: className="..." is React version of class="..." in HTML
         max-w-5xl → limit content width so it doesn’t stretch on big screens
