@@ -1,6 +1,6 @@
 export default function BlobBackground() {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="bg-[#f7f6ee] absolute inset-0 -z-10 overflow-hidden pointer-events-none">
       <div className="blob blob1"></div>
       <div className="blob blob2"></div>
       <div className="blob blob3"></div>

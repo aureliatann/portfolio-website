@@ -45,7 +45,8 @@ export default function Skills() {
           {skillsWithLogos.Languages.map((skill) => (
             <span
               key={skill}
-              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
+
             >
               <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
@@ -61,7 +62,8 @@ export default function Skills() {
           {skillsWithLogos.Frameworks.map((skill) => (
             <span
               key={skill}
-              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
+
             >
               <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
@@ -77,7 +79,8 @@ export default function Skills() {
           {skillsWithLogos.Tools.map((skill) => (
             <span
               key={skill}
-              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
+
             >
               <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
