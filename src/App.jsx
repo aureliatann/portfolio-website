@@ -3,6 +3,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import BlobBackground from "./components/BlobBackground";
+import ContactForm from "./components/ContactForm";
 
 
 // Import fonts
@@ -28,6 +29,8 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
+        <ContactForm />
       </div>
     </div>
   );
