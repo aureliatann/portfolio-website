@@ -7,7 +7,7 @@ export default function About() {
       <div className="flex flex-col sm:flex-row items-center sm:items-center gap-10">
 
         {/* Profile Image */}
-        <div className="w-72 h-72 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full overflow-hidden flex-shrink-0">
+        <div className="w-80 h-80 sm:w-80 sm:h-80 lg:w-100 lg:h-100 rounded-full overflow-hidden flex-shrink-0">
           <img
             src="/images/profile.jpg"
             alt="Aurelia Tan"
@@ -16,10 +16,10 @@ export default function About() {
         </div>
 
         {/* Intro text */}
-        <div className="space-y-6 text-center sm:text-left">
-          <p className="text-gray-600 text-lg">Hi! 👋</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900">
-            I'm Aurelia Tan
+        <div className="space-y-5 text-center sm:text-left">
+          <p className="text-gray-600 text-lg">Hello, I'm</p>
+          <h2 className="text-6xl sm:text-7xl font-bold text-gray-900">
+            Aurelia Tan
           </h2>
 
           <p className="text-gray-600 leading-relaxed text-lg sm:text-xl mt-2">
@@ -28,8 +28,19 @@ export default function About() {
             <strong>user experiences</strong>.
           </p>
 
-          {/* Social links with larger icons */}
-          <div className="flex justify-center sm:justify-start gap-8 mt-4 text-3xl">
+          {/* Resume + Social links */}
+          <div className="flex justify-center sm:justify-start items-center gap-4 mt-4 text-4xl">
+            {/* Resume button */}
+            <a
+              href="/pdfs/Aurelia Tan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#6b1f24] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg hover:bg-[#50171a] transition-colors duration-200"
+            >
+              Resume
+            </a>
+
+            {/* Social icons */}
             <a
               href="https://www.linkedin.com/in/aurelia-tan-32a504329"
               target="_blank"

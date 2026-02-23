@@ -4,7 +4,8 @@ const skillIcons = {
   JavaScript: "devicon-javascript-plain",
   Java: "devicon-java-plain",
   C: "devicon-c-plain",
-  "HTML/CSS": "devicon-html5-plain",
+  HTML: "devicon-html5-plain",
+  CSS: "devicon-css3-plain", 
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
   React: "devicon-react-original",
@@ -22,20 +23,20 @@ const skillIcons = {
 
 export default function Skills() {
   const skillsWithLogos = {
-    Languages: ["Python", "JavaScript", "Java", "C", "HTML/CSS", "SQL"],
+    Languages: ["Python", "JavaScript", "Java", "C", "HTML", "CSS", "SQL"],
     Frameworks: ["Django", "React", "Tailwind CSS"],
     Tools: ["Git", "VS Code", "IntelliJ", "MySQL", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
   };
 
   return (
-    <section id="skills" className="px-2 lg:px-0 py-12 space-y-10">
-      {/* Heading */}
-      <h2 className="text-center text-4xl sm:text-5xl font-bold text-gray-900">
-        SKILLS
-      </h2>
-      <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-        I'm constantly exploring the tools and technologies that drive modern development. Through various projects, I've gained practical experience with several of them, including:
-      </p>
+    <section id="skills" className="py-12 space-y-10">
+    {/* Heading */}
+    <h2 className="text-center text-4xl sm:text-5xl font-bold text-gray-900">
+      SKILLS
+    </h2>
+    <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed">
+      I'm constantly exploring the tools and technologies that drive modern development. Through various projects, I've gained practical experience with several of them, including:
+    </p>
 
       {/* Languages */}
       <div className="text-center space-y-3">

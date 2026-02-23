@@ -24,7 +24,7 @@ export default function App() {
       <div className="h-20" />
 
       {/* Your page content */}
-      <div className="max-w-6xl mx-auto p-6 space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto p-6 space-y-16 relative z-10">
         <About />
         <Skills />
         <Projects />

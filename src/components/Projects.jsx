@@ -6,7 +6,8 @@ const skillIcons = {
   JavaScript: "devicon-javascript-plain",
   Java: "devicon-java-plain",
   C: "devicon-c-plain",
-  "HTML/CSS": "devicon-html5-plain",
+  HTML: "devicon-html5-plain",
+  CSS: "devicon-css3-plain", 
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
   React: "devicon-react-original",
@@ -31,7 +32,7 @@ export default function Projects() {
       subtitle: "Website for The Forum 2026, Organized by MUISA",
       description: "Developed and deployed a Django portal to streamline event registration and ticketing via automated emails.",
       role: "Full-Stack Developer",
-      tools: ["Django", "Python", "JavaScript", "HTML/CSS"],
+      tools: ["Django", "Python", "JavaScript", "HTML", "CSS"],
       thumb: "/images/theforum-thumb.png",
       video: "",
     },
@@ -40,7 +41,7 @@ export default function Projects() {
       subtitle: "Website",
       description: "Developed an interactive portfolio website with React to display personal expertise.",
       role: "Front-End Developer",
-      tools: ["React", "Tailwind CSS", "JavaScript", "HTML/CSS"],
+      tools: ["React", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
       thumb: "/images/portfolio-thumb.png",
       video: "",
     },
@@ -71,6 +72,15 @@ export default function Projects() {
       thumb: "/images/dataessay-thumb.png",
       video: "/videos/dataessay.mp4",
     },
+    {
+      title: "Organization Website",
+      subtitle: "Website for MUISA",
+      description: "Managed the organization's public website, designing and updating pages according to the ogranization's needs to enhance digital presence.",
+      role: "Webmaster",
+      tools: [],
+      thumb: "/images/ppiawebsite-thumb.png",
+      video: "/videos/ppiawebsite.mp4",
+    },
   ];
 
   return (
@@ -79,7 +89,7 @@ export default function Projects() {
       <h2 className="text-center text-4xl sm:text-5xl font-bold text-gray-900">
         PROJECTS
       </h2>
-      <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+      <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed mx-auto">
         Here’s a showcase of my personal projects, each highlighting the tools I’ve used that have helped refine my skillset.
       </p>
       
@@ -100,15 +110,22 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
   return (
     <div
       className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 text-primaryText group cursor-pointer transition-transform hover:scale-105 duration-300 overflow-hidden"
-      onMouseEnter={() => videoRef.current && videoRef.current.play()}
-      onMouseLeave={() => videoRef.current && videoRef.current.pause()}
+      onMouseEnter={() => {
+        if (videoRef.current) {
+          videoRef.current.currentTime = 0; // restart video
+          videoRef.current.play();
+        }
+      }}
+      onMouseLeave={() => {
+        if (videoRef.current) videoRef.current.pause();
+      }}
     >
       {/* Fixed-height image/video container */}
       <div className="relative w-full h-72 overflow-hidden rounded-t-xl">
         <img
           src={thumb}
           alt={`${title} thumbnail`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top" // ensures top of image is always shown
         />
         {video && (
           <video
@@ -117,7 +134,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         )}
       </div>
@@ -130,14 +147,13 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
         <p className="text-base sm:text-lg text-secondaryText">{subtitle}</p>
         <p className="text-lg sm:text-xl text-primaryText font-semibold">{role}</p>
 
-        {/* Tools (with Devicon logos) */}
+        {/* Tools */}
         <div className="flex flex-wrap gap-3 mt-3">
           {tools.map((tech) => (
             <span
               key={tech}
               className="flex items-center gap-2 px-5 py-2 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
             >
-              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-lg`}></i>}
               {tech}
             </span>
           ))}
