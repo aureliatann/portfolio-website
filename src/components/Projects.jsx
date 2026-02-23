@@ -1,5 +1,28 @@
 import { useRef } from "react";
 
+// DEVICON MAP
+const skillIcons = {
+  Python: "devicon-python-plain",
+  JavaScript: "devicon-javascript-plain",
+  Java: "devicon-java-plain",
+  C: "devicon-c-plain",
+  "HTML/CSS": "devicon-html5-plain",
+  SQL: "devicon-mysql-plain",
+  Django: "devicon-django-plain",
+  React: "devicon-react-original",
+  "Tailwind CSS": "devicon-tailwindcss-plain",
+  Git: "devicon-git-plain",
+  "VS Code": "devicon-vscode-plain",
+  IntelliJ: "devicon-intellij-plain",
+  MySQL: "devicon-mysql-plain",
+  Figma: "devicon-figma-plain",
+  Unity: "devicon-unity-plain colored",
+  Jupyter: "devicon-jupyter-plain",
+  Pandas: "devicon-pandas-plain colored",
+  NLTK: "devicon-python-plain",
+  Seaborn: "devicon-matplotlib-plain"
+}
+
 // -------------------- PROJECTS --------------------
 export default function Projects() {
   const projects = [
@@ -107,13 +130,14 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
         <p className="text-base sm:text-lg text-secondaryText">{subtitle}</p>
         <p className="text-lg sm:text-xl text-primaryText font-semibold">{role}</p>
 
-        {/* Tools */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        {/* Tools (with Devicon logos) */}
+        <div className="flex flex-wrap gap-3 mt-3">
           {tools.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-blob1/20 text-blob1 rounded-full text-sm font-medium"
+              className="flex items-center gap-2 px-5 py-2 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
             >
+              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-lg`}></i>}
               {tech}
             </span>
           ))}

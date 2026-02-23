@@ -1,4 +1,32 @@
+// DEVICON MAP
+const skillIcons = {
+  Python: "devicon-python-plain",
+  JavaScript: "devicon-javascript-plain",
+  Java: "devicon-java-plain",
+  C: "devicon-c-plain",
+  "HTML/CSS": "devicon-html5-plain",
+  SQL: "devicon-mysql-plain",
+  Django: "devicon-django-plain",
+  React: "devicon-react-original",
+  "Tailwind CSS": "devicon-tailwindcss-plain",
+  Git: "devicon-git-plain",
+  "VS Code": "devicon-vscode-plain",
+  IntelliJ: "devicon-intellij-plain",
+  MySQL: "devicon-mysql-plain",
+  MATLAB: "matlab-original",
+  "R Studio": "devicon-rstudio-plain",
+  Figma: "devicon-figma-plain",
+  Unity: "devicon-unity-plain colored",
+  Jupyter: "devicon-jupyter-plain",
+};
+
 export default function Skills() {
+  const skillsWithLogos = {
+    Languages: ["Python", "JavaScript", "Java", "C", "HTML/CSS", "SQL"],
+    Frameworks: ["Django", "React", "Tailwind CSS"],
+    Tools: ["Git", "VS Code", "IntelliJ", "MySQL", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
+  };
+
   return (
     <section id="skills" className="px-2 lg:px-0 py-12 space-y-10">
       {/* Heading */}
@@ -13,11 +41,12 @@ export default function Skills() {
       <div className="text-center space-y-3">
         <h3 className="font-semibold text-2xl text-gray-800 mb-2">Languages</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {["Python", "JavaScript", "Java", "C", "HTML/CSS", "SQL"].map((skill) => (
+          {skillsWithLogos.Languages.map((skill) => (
             <span
               key={skill}
-              className="px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
             >
+              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
             </span>
           ))}
@@ -28,11 +57,12 @@ export default function Skills() {
       <div className="text-center space-y-3">
         <h3 className="font-semibold text-2xl text-gray-800 mb-2">Frameworks</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {["Django", "React", "Node.js", "Tailwind CSS"].map((skill) => (
+          {skillsWithLogos.Frameworks.map((skill) => (
             <span
               key={skill}
-              className="px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
             >
+              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
             </span>
           ))}
@@ -43,11 +73,12 @@ export default function Skills() {
       <div className="text-center space-y-3">
         <h3 className="font-semibold text-2xl text-gray-800 mb-2">Technical Tools</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {["Git", "VS Code", "IntelliJ", "MySQL", "Figma", "Unity", "Jupyter"].map((skill) => (
+          {skillsWithLogos.Tools.map((skill) => (
             <span
               key={skill}
-              className="px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
+              className="flex items-center gap-2 px-5 py-3 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
             >
+              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
               {skill}
             </span>
           ))}
