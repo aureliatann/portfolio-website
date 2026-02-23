@@ -5,14 +5,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Headings → Poppins Bold */
+/* Headings → Playfair Display Bold */
 .font-heading {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  @apply font-serif; /* optional, tells Tailwind it’s a serif font */
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
 }
 
 /* Body → Inter Regular */
 .font-body {
+  @apply font-sans; /* optional */
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
@@ -31,16 +33,16 @@
 }
 
 /* Blob positions, colors, delays for natural spread */
-.blob1 { top: 5%; left: 10%; background: #8a4a57; animation-delay: -2s; }
-.blob2 { top: 20%; left: 70%; background: #b37a84; animation-delay: -5s; }
-.blob3 { top: 35%; left: 20%; background: #7b3f4a; animation-delay: -3s; width: 400px; height: 400px; }
-.blob4 { top: 50%; left: 60%; background: #a26670; animation-delay: -7s; width: 300px; height: 300px; }
-.blob5 { top: 65%; left: 15%; background: #c9a3a8; animation-delay: -1s; width: 350px; height: 350px; }
-.blob6 { top: 75%; left: 75%; background: #8a4a57; animation-delay: -4s; width: 450px; height: 450px; }
-.blob7 { top: 10%; left: 50%; background: #b37a84; animation-delay: -6s; width: 300px; height: 300px; }
-.blob8 { top: 40%; left: 85%; background: #7b3f4a; animation-delay: -8s; width: 400px; height: 400px; }
-.blob9 { top: 85%; left: 40%; background: #a26670; animation-delay: -2s; width: 350px; height: 350px; }
-.blob10{ top: 60%; left: 35%; background: #c9a3a8; animation-delay: -5s; width: 300px; height: 300px; }
+.blob1 { top: 5%; left: 10%; background: #6b1f24; animation-delay: -2s; }
+.blob2 { top: 20%; left: 70%; background: #6b1f24; animation-delay: -5s; }
+.blob3 { top: 35%; left: 20%; background: #6b1f24; animation-delay: -3s; width: 400px; height: 400px; }
+.blob4 { top: 50%; left: 60%; background: #6b1f24; animation-delay: -7s; width: 300px; height: 300px; }
+.blob5 { top: 65%; left: 15%; background: #6b1f24; animation-delay: -1s; width: 350px; height: 350px; }
+.blob6 { top: 75%; left: 75%; background: #6b1f24; animation-delay: -4s; width: 450px; height: 450px; }
+.blob7 { top: 10%; left: 50%; background: #6b1f24; animation-delay: -6s; width: 300px; height: 300px; }
+.blob8 { top: 40%; left: 85%; background: #6b1f24; animation-delay: -8s; width: 400px; height: 400px; }
+.blob9 { top: 85%; left: 40%; background: #6b1f24; animation-delay: -2s; width: 350px; height: 350px; }
+.blob10{ top: 60%; left: 35%; background: #6b1f24; animation-delay: -5s; width: 300px; height: 300px; }
 
 @keyframes morph {
   0% {

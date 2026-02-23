@@ -31,8 +31,8 @@ export default function Skills() {
   return (
     <section id="skills" className="py-12 space-y-10">
     {/* Heading */}
-    <h2 className="text-center text-4xl sm:text-5xl font-bold text-gray-900">
-      SKILLS
+    <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
+      Technical Skills
     </h2>
     <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed">
       I'm constantly exploring the tools and technologies that drive modern development. Through various projects, I've gained practical experience with several of them, including:

@@ -11,8 +11,8 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 
-import "@fontsource/playfair-display/400-italic.css";
-import "@fontsource/playfair-display/700-italic.css";
+import "@fontsource/playfair-display/400.css"; // regular
+import "@fontsource/playfair-display/800.css"; // bold
 
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
       <div className="h-20" />
 
       {/* Your page content */}
-      <div className="max-w-7xl mx-auto p-6 space-y-16 relative z-10">
+      <div className="max-w-7xl mx-auto p-6 space-y-5 relative z-10">
         <About />
         <Skills />
         <Projects />

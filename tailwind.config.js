@@ -14,8 +14,7 @@ module.exports = {
         accent: "#1F3C88",        // deep navy for hover
       },
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        playfair: ["'Playfair Display'", "serif"]
       },
     },
   },

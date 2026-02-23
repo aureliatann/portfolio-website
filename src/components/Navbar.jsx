@@ -49,20 +49,26 @@ export default function Navbar() {
       */}
       <div className="flex items-center justify-between px-6 sm:px-8 py-4">
         {/* Logo */}
-        <h1 className="text-[1.5rem] sm:text-[1.625rem] font-bold text-[#4B1A1A]">
+        <h1 className="text-[#3a000c] font-heading tracking-wider font-bold text-[2.5rem] sm:text-[2.8rem]">
           AT
         </h1>
+
         {/* Navigation links */}
-        <ul className="flex gap-10 text-[1.25rem] sm:text-[1.375rem] font-medium tracking-wider">
+        <ul className="text-[#3a000c] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.5rem] sm:text-[1.8rem] font-medium">
           {["about", "skills", "projects"].map((section) => (
-            <li key={section}>
+            <li key={section} className="relative">
               <a
                 href={`#${section}`}
-                className={`relative transition-colors duration-300 ${
-                  active === section
-                    ? "text-[#4B1A1A] after:w-full after:bg-[#4B1A1A] after:h-0.5 after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-300"
-                    : "text-[#732525] hover:text-[#4B1A1A] after:w-0 after:bg-[#4B1A1A] after:h-0.5 after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-300"
-                }`}
+                className={`
+                  inline-block relative transition-transform duration-300 transform
+                  ${
+                    active === section
+                      ? "text-[#6a1e28] scale-125 -translate-y-1" // raises active tab slightly
+                      : "text-[#3a000c] hover:text-[#4B1A1A] hover:scale-105"
+                  }
+                  after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#4B1A1A] after:transition-all after:duration-300
+                  ${active === section ? "after:w-full" : "after:w-0 hover:after:w-full"}
+                `}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>

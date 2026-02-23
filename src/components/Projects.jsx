@@ -29,7 +29,7 @@ export default function Projects() {
   const projects = [
     {
       title: "Event Registration Portal",
-      subtitle: "Website for The Forum 2026, Organized by MUISA",
+      subtitle: "Website for MUISA's The Forum 2026",
       description: "Developed and deployed a Django portal to streamline event registration and ticketing via automated emails.",
       role: "Full-Stack Developer",
       tools: ["Django", "Python", "JavaScript", "HTML", "CSS"],
@@ -75,8 +75,8 @@ export default function Projects() {
     {
       title: "Organization Website",
       subtitle: "Website for MUISA",
-      description: "Managed the organization's public website, designing and updating pages according to the ogranization's needs to enhance digital presence.",
-      role: "Webmaster",
+      description: "Designed and updated MUISA's public-facing website according to the ogranization's needs to enhance digital presence.",
+      role: "Designer",
       tools: [],
       thumb: "/images/ppiawebsite-thumb.png",
       video: "/videos/ppiawebsite.mp4",
@@ -86,8 +86,8 @@ export default function Projects() {
   return (
     <section id="projects" className="w-full py-12 space-y-8">
       {/* Heading */}
-      <h2 className="text-center text-4xl sm:text-5xl font-bold text-gray-900">
-        PROJECTS
+      <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
+        Projects
       </h2>
       <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed mx-auto">
         Here’s a showcase of my personal projects, each highlighting the tools I’ve used that have helped refine my skillset.
@@ -109,7 +109,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
 
   return (
     <div
-      className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 text-primaryText group cursor-pointer transition-transform hover:scale-105 duration-300 overflow-hidden"
+      className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 text-primaryText group cursor-pointer transition-transform hover:scale-105 duration-300 overflow-hidden shadow-xl hover:shadow-2xl"
       onMouseEnter={() => {
         if (videoRef.current) {
           videoRef.current.currentTime = 0; // restart video
@@ -125,7 +125,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
         <img
           src={thumb}
           alt={`${title} thumbnail`}
-          className="w-full h-full object-cover object-top" // ensures top of image is always shown
+          className="w-full h-full object-cover object-top"
         />
         {video && (
           <video
@@ -140,24 +140,32 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
       </div>
 
       {/* Project info */}
-      <div className="p-6 space-y-1">
-        <h3 className="font-heading font-bold text-2xl sm:text-2.25xl text-headingAccent">
-          {title}
-        </h3>
-        <p className="text-base sm:text-lg text-secondaryText">{subtitle}</p>
-        <p className="text-lg sm:text-xl text-primaryText font-semibold">{role}</p>
-
-        {/* Tools */}
-        <div className="flex flex-wrap gap-3 mt-3">
-          {tools.map((tech) => (
-            <span
-              key={tech}
-              className="flex items-center gap-2 px-5 py-2 bg-gray-100 rounded-lg text-gray-700 text-base sm:text-lg font-medium"
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="p-6 space-y-2">
+        {/* Title + Role in one row */}
+        <div className="flex justify-between items-center">
+          <h3 className="text-[#3a000c] font-bold text-2xl sm:text-2.25xl text-headingAccent">
+            {title}
+          </h3>
+          <p className="text-[#3a000c] text-lg sm:text-xl font-semibold">{role}</p>
         </div>
+
+        {/* Subtitle */}
+        <p className="text-[#3a000c] text-base sm:text-lg">{subtitle}</p>
+
+        {/* Tool badges */}
+        {tools && tools.length > 0 && (
+          <div className="flex flex-wrap justify-start gap-3 mt-3">
+            {tools.map((tech) => (
+              <span
+                key={tech}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-gray-700 text-sm sm:text-base font-medium"
+              >
+                {skillIcons[tech] && <i className={`${skillIcons[tech]} text-lg`} />}
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Description */}
         <p className="text-base sm:text-lg text-primaryText mt-2 font-body">{description}</p>

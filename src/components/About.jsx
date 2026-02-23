@@ -17,15 +17,15 @@ export default function About() {
 
         {/* Intro text */}
         <div className="space-y-5 text-center sm:text-left">
-          <p className="text-gray-600 text-lg">Hello, I'm</p>
-          <h2 className="text-6xl sm:text-7xl font-bold text-gray-900">
+          <p className="text-gray-600 leading-relaxed text-lg sm:text-xl mb-0">Hello, I'm</p>
+          <h2 className="text-[#3a000c] font-heading tracking-wider text-6xl sm:text-7xl font-boldtext-[#3a000c]">
             Aurelia Tan
           </h2>
 
           <p className="text-gray-600 leading-relaxed text-lg sm:text-xl mt-2">
             I'm currently a final-year Computer Science student at The University of Melbourne, aspiring to be a{' '}
-            <strong>full-stack developer</strong> with a strong passion for enhancing{' '}
-            <strong>user experiences</strong>.
+            <strong>full-stack developer</strong>. I thrive at the intersection of design and development, 
+            driven by a passion for creating applications that enhance user experiences.
           </p>
 
           {/* Resume + Social links */}
@@ -35,7 +35,7 @@ export default function About() {
               href="/pdfs/Aurelia Tan.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#6b1f24] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg hover:bg-[#50171a] transition-colors duration-200"
+              className="bg-[#6a1e28] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg hover:bg-[#50171a] transition-colors duration-200"
             >
               Resume
             </a>
@@ -45,7 +45,7 @@ export default function About() {
               href="https://www.linkedin.com/in/aurelia-tan-32a504329"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-600 transition-colors duration-200"
+              className="text-[#7b2a35] hover:text-[#3a000c] transition-colors duration-200"
             >
               <FaLinkedin />
             </a>
@@ -53,13 +53,13 @@ export default function About() {
               href="https://github.com/aureliatann"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-600 transition-colors duration-200"
+              className="text-[#7b2a35] hover:text-[#3a000c] transition-colors duration-200"
             >
               <FaGithub />
             </a>
             <a
               href="mailto:aureliatan7@gmail.com"
-              className="text-gray-500 hover:text-gray-600 transition-colors duration-200"
+              className="text-[#7b2a35] hover:text-[#3a000c] transition-colors duration-200"
             >
               <FaEnvelope />
             </a>
