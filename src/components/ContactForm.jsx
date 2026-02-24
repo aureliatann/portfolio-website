@@ -16,7 +16,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("Sending...");
     try {
-      const res = await fetch("http://localhost:5050/contact]", {
+      const res = await fetch("http://localhost:5050/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
