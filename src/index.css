@@ -7,18 +7,17 @@
 
 /* Headings → Playfair Display Bold */
 .font-heading {
-  @apply font-serif; /* optional, tells Tailwind it’s a serif font */
-  font-family: 'Playfair Display', serif;
+  @apply font-serif;
+  font-family: 'Montserrat', serif;
   font-weight: 800;
 }
 
 /* Body → Inter Regular */
 .font-body {
   @apply font-sans; /* optional */
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
+  font-family: 'Times New Roman', sans-serif;
+  font-weight: 500;
 }
-
 /* ------------------------------- */
 /* FLOATING ORGANIC BLOB ANIMATIONS */
 /* ------------------------------- */

@@ -4,6 +4,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import BlobBackground from "./components/BlobBackground";
 import ContactForm from "./components/ContactForm";
+import "./index.css";
 
 // Import fonts
 import "@fontsource/inter"; // default weight 400
@@ -12,23 +13,36 @@ import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 
 import "@fontsource/playfair-display/400.css"; // regular
-import "@fontsource/playfair-display/800.css"; // bold
+import "@fontsource/playfair-display/800-italic.css"; // bold
+
+// App.jsx (or top-level file)
+import "@fontsource/montserrat"; // default 400 weight
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+
+// In your project
+import "@fontsource/lora/400.css"; // Regular
+import "@fontsource/lora/400-italic.css"; // Italic
+
+// Merriweather
+import "@fontsource/merriweather/400.css"; // Regular
+import "@fontsource/merriweather/800.css"; // Bold
+
+// EB Garamond
+import "@fontsource/eb-garamond/400.css"; // Regular
+import "@fontsource/eb-garamond/800.css"; // Extra Bold
 
 export default function App() {
   return (
-    <div className="relative"> {/* whole page wrapper */}
-     <BlobBackground />      {/* behind everything */}
-
-      <Navbar />
-      <div className="h-20"/>
+    <section className="w-full min-h-screen 
+                   bg-[#F5F1E6]">
 
       {/* Your page content */}
-      <div className="max-w-6xl mx-auto p-6 space-y-5 relative z-10">
+      <Navbar />
+      <div className="max-w-8xl mx-auto p-6 space-y-5 relative z-10">
         <About />
-        <Skills />
-        <Projects />
-        <ContactForm />
       </div>
-    </div>
+    </section> // <-- close the section here
   );
 }

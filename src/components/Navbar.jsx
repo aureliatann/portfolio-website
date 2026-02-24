@@ -36,11 +36,10 @@ export default function Navbar() {
   return (
     /* w-full → full width
        bg-white → white background
-       shadow-sm → small shadow under navbar
        sticky top-0 → sticks to top
        z-50 → ensures navbar is on top
     */
-    <nav className="bg-[#f7f6ee] w-full shadow-sm sticky top-0 z-50">
+    <nav className="bg-[#f7f6ee] w-full sticky top-0 z-50">
       {/* flex → place items in a row
           items-center → vertically center items
           justify-between → space between logo and links
