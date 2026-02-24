@@ -48,7 +48,6 @@ export default function Navbar() {
           py-4 → vertical padding
       */}
       <div className="flex items-center justify-between px-6 sm:px-8 py-4">
-        {/* Logo */}
         <h1 className="text-[#4e1f2f] font-heading tracking-wider font-bold text-[2.5rem] sm:text-[2.8rem]">
           AT
         </h1>
