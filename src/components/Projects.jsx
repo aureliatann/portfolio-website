@@ -105,7 +105,7 @@ export default function Projects() {
       </p>
       
       {/* ---------------- Project Grid ---------------- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-4 sm:px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         {projects.map((proj) => (
           <ProjectWithVideo key={proj.title} {...proj} />
         ))}

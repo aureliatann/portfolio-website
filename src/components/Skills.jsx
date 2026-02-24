@@ -35,7 +35,7 @@ export default function Skills() {
   };
 
   const SkillCard = ({ title, items }) => (
-    <div className="p-6 bg-white rounded-2xl shadow-xl border border-gray-200 w-full">
+    <div className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 w-full">
       <h3 className="font-semibold text-2xl text-[#3a000c] mb-4 text-center">
         {title}
       </h3>
