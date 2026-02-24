@@ -8,16 +8,17 @@ const skillIcons = {
   CSS: "devicon-css3-plain", 
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
+  SQLite: "devicon-sqlite-plain",
   React: "devicon-react-original",
   "Tailwind CSS": "devicon-tailwindcss-plain",
   Git: "devicon-git-plain",
   "VS Code": "devicon-vscode-plain",
   IntelliJ: "devicon-intellij-plain",
   MySQL: "devicon-mysql-plain",
-  MATLAB: "matlab-original",
+  MATLAB: "devicon-matlab-plain",
   "R Studio": "devicon-rstudio-plain",
   Figma: "devicon-figma-plain",
-  Unity: "devicon-unity-plain colored",
+  Unity: "devicon-unity-plain",
   Jupyter: "devicon-jupyter-plain",
   "Node.js": "devicon-nodejs-plain",
   "Express.js": "devicon-express-original",
@@ -29,68 +30,58 @@ export default function Skills() {
   const skillsWithLogos = {
     Languages: ["Python", "JavaScript", "Java", "C", "HTML", "CSS", "SQL"],
     Frameworks: ["Django", "React", "Tailwind CSS", "Node.js", "Express.js"],
-    Tools: ["Git", "VS Code", "IntelliJ", "MySQL", "MongoDB", "Mongoose", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
+    Databases: ["MySQL", "SQLite", "MongoDB", "Mongoose"],
+    Tools: ["Git", "VS Code", "IntelliJ", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
   };
 
+  const SkillCard = ({ title, items }) => (
+    <div className="p-6 bg-white rounded-2xl shadow-xl border border-gray-200 w-full">
+      <h3 className="font-semibold text-2xl text-[#3a000c] mb-4 text-center">
+        {title}
+      </h3>
+
+      <div className="flex flex-wrap justify-center gap-4">
+        {items.map((skill) => (
+          <span
+            key={skill}
+            className="bg-[#faf7f7] flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-sm border border-gray-200"
+          >
+            <i className={`${skillIcons[skill]} text-xl`} />
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <section id="skills" className="py-12 space-y-10">
-    {/* Heading */}
-    <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
-      Technical Skills
-    </h2>
-    <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed">
-      I'm constantly exploring the tools and technologies that drive modern development. Through various projects, I've gained practical experience with several of them, including:
-    </p>
+    <section id="skills" className="py-12 space-y-12">
+      <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider text-center text-5xl sm:text-6xl drop-shadow-lg">
+        Technical Skills
+      </h2>
 
-      {/* Languages */}
-      <div className="text-center space-y-3">
-        <h3 className="font-semibold text-2xl text-gray-800 mb-2">Languages</h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {skillsWithLogos.Languages.map((skill) => (
-            <span
-              key={skill}
-              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
+      <p className="text-center text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        I'm constantly exploring the tools and technologies that drive modern development.
+      </p>
 
-            >
-              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
-              {skill}
-            </span>
-          ))}
-        </div>
+      {/* Top: responsive grid 
+          - 1 col mobile
+          - 2 col tablet (2×2)
+          - 3 col desktop */}
+      <div className="
+        grid 
+        grid-cols-1 
+        md:grid-cols-3 
+        gap-8
+      ">
+        <SkillCard title="Languages" items={skillsWithLogos.Languages} />
+        <SkillCard title="Frameworks" items={skillsWithLogos.Frameworks} />
+        <SkillCard title="Databases" items={skillsWithLogos.Databases} />
       </div>
 
-      {/* Frameworks */}
-      <div className="text-center space-y-3">
-        <h3 className="font-semibold text-2xl text-gray-800 mb-2">Frameworks</h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {skillsWithLogos.Frameworks.map((skill) => (
-            <span
-              key={skill}
-              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
-
-            >
-              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
-              {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Tools */}
-      <div className="text-center space-y-3">
-        <h3 className="font-semibold text-2xl text-gray-800 mb-2">Technical Tools</h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {skillsWithLogos.Tools.map((skill) => (
-            <span
-              key={skill}
-              className="bg-white flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-xl"
-
-            >
-              <i className={`${skillIcons[skill]} text-xl`} /> {/* Devicon icon */}
-              {skill}
-            </span>
-          ))}
-        </div>
+      {/* Bottom: developer tools always full width */}
+      <div className="grid grid-cols-1">
+        <SkillCard title="Developer Tools" items={skillsWithLogos.Tools} />
       </div>
     </section>
   );

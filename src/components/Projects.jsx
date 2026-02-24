@@ -10,6 +10,7 @@ const skillIcons = {
   CSS: "devicon-css3-plain", 
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
+  SQLite: "devicon-sqlite-plain",
   React: "devicon-react-original",
   "Tailwind CSS": "devicon-tailwindcss-plain",
   Git: "devicon-git-plain",
@@ -17,9 +18,9 @@ const skillIcons = {
   IntelliJ: "devicon-intellij-plain",
   MySQL: "devicon-mysql-plain",
   Figma: "devicon-figma-plain",
-  Unity: "devicon-unity-plain colored",
+  Unity: "devicon-unity-plain",
   Jupyter: "devicon-jupyter-plain",
-  Pandas: "devicon-pandas-plain colored",
+  Pandas: "devicon-pandas-plain",
   NLTK: "devicon-python-plain",
   Seaborn: "devicon-matplotlib-plain",
   "Node.js": "devicon-nodejs-plain",
@@ -36,16 +37,22 @@ export default function Projects() {
       subtitle: "Website for MUISA's The Forum 2026",
       description: "Developed and deployed a Django portal to streamline event registration and ticketing via automated emails.",
       role: "Full-Stack Developer",
-      tools: ["Django", "Python", "JavaScript", "HTML", "CSS"],
+      stack: {
+        frontend: ["HTML", "CSS", "JavaScript"],
+        backend: ["Python", "Django", "SQLite"]
+      },
       thumb: "/images/theforum-thumb.png",
       video: "",
     },
     {
       title: "Personal Portfolio",
       subtitle: "Website",
-      description: "Developed an interactive portfolio website using the MERN stack, to display personal expertise as well as include a backend API for handling contact form submissions.",
-      role: "Front-End Developer",
-      tools: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "JavaScript", "HTML", "CSS"],
+      description: "Developed an interactive portfolio website using the MERN stack, including a backend API for handling contact form submissions.",
+      role: "Full-Stack Developer",
+      stack: {
+        frontend: ["React", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+        backend: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
+      },
       thumb: "/images/portfolio-thumb.png",
       video: "",
     },
@@ -108,7 +115,7 @@ export default function Projects() {
 }
 
 // ---------------- Project Card ----------------
-function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, video }) {
+function ProjectWithVideo({ title, subtitle, description, role, tools, stack, thumb, video }) {
   const videoRef = useRef(null);
 
   return (
@@ -116,7 +123,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
       className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 text-primaryText group cursor-pointer transition-transform hover:scale-105 duration-300 overflow-hidden shadow-xl hover:shadow-2xl"
       onMouseEnter={() => {
         if (videoRef.current) {
-          videoRef.current.currentTime = 0; // restart video
+          videoRef.current.currentTime = 0;
           videoRef.current.play();
         }
       }}
@@ -143,11 +150,10 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
         )}
       </div>
 
-      {/* Project info */}
       <div className="p-6 space-y-2">
-        {/* Title + Role in one row */}
+        {/* Title + Role */}
         <div className="flex justify-between items-center">
-          <h3 className="text-[#3a000c] font-bold text-2xl sm:text-2.25xl text-headingAccent">
+          <h3 className="text-[#3a000c] font-bold text-2xl sm:text-2.25xl">
             {title}
           </h3>
           <p className="text-[#3a000c] text-lg sm:text-xl font-semibold">{role}</p>
@@ -156,23 +162,68 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, thumb, vi
         {/* Subtitle */}
         <p className="text-[#3a000c] text-base sm:text-lg">{subtitle}</p>
 
-        {/* Tool badges */}
-        {tools && tools.length > 0 && (
-          <div className="flex flex-wrap justify-start gap-3 mt-3">
-            {tools.map((tech) => (
-              <span
-                key={tech}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg text-gray-700 text-sm sm:text-base font-medium"
-              >
-                {skillIcons[tech] && <i className={`${skillIcons[tech]} text-lg`} />}
-                {tech}
-              </span>
-            ))}
-          </div>
-        )}
+        {/* ---------------- TECH STACK ---------------- */}
+{stack ? (
+  <div className="mt-3 space-y-3">
+
+    {/* Frontend */}
+    {stack.frontend?.length > 0 && (
+      <div className="flex items-center gap-2">
+        <p className="font-semibold text-[#3a000c] min-w-[80px]">Frontend</p>
+        <div className="flex flex-wrap gap-2">
+          {stack.frontend.map((tech) => (
+            <span
+              key={tech}
+              className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
+            >
+              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {/* Backend (merged with Database) */}
+    {(stack.backend?.length > 0 || stack.database?.length > 0) && (
+      <div className="flex items-center gap-2">
+        <p className="font-semibold text-[#3a000c] min-w-[80px]">Backend</p>
+        <div className="flex flex-wrap gap-2">
+          {[...(stack.backend || []), ...(stack.database || [])].map((tech) => (
+            <span
+              key={tech}
+              className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
+            >
+              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    )}
+
+  </div>
+) : (
+  /* Non-fullstack → tools list */
+  tools?.length > 0 && (
+    <div className="flex flex-wrap justify-start gap-3 mt-3">
+      {tools.map((tech) => (
+        <span
+          key={tech}
+          className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
+        >
+          {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+          {tech}
+        </span>
+      ))}
+    </div>
+  )
+)}
 
         {/* Description */}
-        <p className="text-base sm:text-lg text-primaryText mt-2 font-body">{description}</p>
+        <p className="text-base sm:text-lg text-primaryText mt-2 font-body">
+          {description}
+        </p>
       </div>
     </div>
   );
