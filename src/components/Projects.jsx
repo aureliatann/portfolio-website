@@ -21,7 +21,11 @@ const skillIcons = {
   Jupyter: "devicon-jupyter-plain",
   Pandas: "devicon-pandas-plain colored",
   NLTK: "devicon-python-plain",
-  Seaborn: "devicon-matplotlib-plain"
+  Seaborn: "devicon-matplotlib-plain",
+  "Node.js": "devicon-nodejs-plain",
+  "Express.js": "devicon-express-original",
+  MongoDB: "devicon-mongodb-plain",
+  Mongoose: "devicon-mongoose-original"
 }
 
 // -------------------- PROJECTS --------------------
@@ -39,9 +43,9 @@ export default function Projects() {
     {
       title: "Personal Portfolio",
       subtitle: "Website",
-      description: "Developed an interactive portfolio website with React to display personal expertise.",
+      description: "Developed an interactive portfolio website using the MERN stack, to display personal expertise as well as include a backend API for handling contact form submissions.",
       role: "Front-End Developer",
-      tools: ["React", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+      tools: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "JavaScript", "HTML", "CSS"],
       thumb: "/images/portfolio-thumb.png",
       video: "",
     },

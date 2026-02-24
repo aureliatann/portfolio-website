@@ -19,13 +19,17 @@ const skillIcons = {
   Figma: "devicon-figma-plain",
   Unity: "devicon-unity-plain colored",
   Jupyter: "devicon-jupyter-plain",
+  "Node.js": "devicon-nodejs-plain",
+  "Express.js": "devicon-express-original",
+  MongoDB: "devicon-mongodb-plain",
+  Mongoose: "devicon-mongoose-original"
 };
 
 export default function Skills() {
   const skillsWithLogos = {
     Languages: ["Python", "JavaScript", "Java", "C", "HTML", "CSS", "SQL"],
-    Frameworks: ["Django", "React", "Tailwind CSS"],
-    Tools: ["Git", "VS Code", "IntelliJ", "MySQL", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
+    Frameworks: ["Django", "React", "Tailwind CSS", "Node.js", "Express.js"],
+    Tools: ["Git", "VS Code", "IntelliJ", "MySQL", "MongoDB", "Mongoose", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
   };
 
   return (
