@@ -25,7 +25,6 @@ const skillIcons = {
   MongoDB: "devicon-mongodb-plain",
   Mongoose: "devicon-mongoose-original"
 };
-
 export default function Skills() {
   const skillsWithLogos = {
     Languages: ["Python", "JavaScript", "Java", "C", "HTML", "CSS", "SQL"],
@@ -36,7 +35,7 @@ export default function Skills() {
 
   const SkillCard = ({ title, items }) => (
     <div className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 w-full">
-      <h3 className="font-semibold text-2xl text-[#3a000c] mb-4 text-center">
+      <h3 className="font-semibold text-2xl text-[#4e1f2f] mb-4 text-center">
         {title}
       </h3>
 
@@ -44,9 +43,11 @@ export default function Skills() {
         {items.map((skill) => (
           <span
             key={skill}
-            className="bg-[#faf7f7] flex items-center gap-2 px-5 py-2.5 rounded-xl text-[#3a000c] text-base sm:text-lg font-medium shadow-sm border border-gray-200"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl 
+                       bg-[#f2e8e9] text-[#4e1f2f] text-sm sm:text-base 
+                       font-medium shadow-sm border border-[#e5dcdc]"
           >
-            <i className={`${skillIcons[skill]} text-xl`} />
+            {skillIcons[skill] && <i className={`${skillIcons[skill]} text-lg`} />}
             {skill}
           </span>
         ))}
@@ -56,24 +57,12 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-12 space-y-12">
-      <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider text-center text-5xl sm:text-6xl drop-shadow-lg">
+      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider text-center text-5xl sm:text-6xl drop-shadow-lg">
         Technical Skills
       </h2>
 
-      <p className="text-center text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        I'm constantly exploring the tools and technologies that drive modern development.
-      </p>
-
-      {/* Top: responsive grid 
-          - 1 col mobile
-          - 2 col tablet (2×2)
-          - 3 col desktop */}
-      <div className="
-        grid 
-        grid-cols-1 
-        md:grid-cols-3 
-        gap-8
-      ">
+      {/* Top: responsive grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <SkillCard title="Languages" items={skillsWithLogos.Languages} />
         <SkillCard title="Frameworks" items={skillsWithLogos.Frameworks} />
         <SkillCard title="Databases" items={skillsWithLogos.Databases} />

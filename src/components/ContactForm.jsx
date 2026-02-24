@@ -35,10 +35,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="w-full bg-white/80 p-10 rounded-2xl shadow-xl border border-gray-200 space-y-6">
+    <form className="w-full bg-white/80 p-10 mb-20 rounded-2xl shadow-xl border border-gray-200 space-y-6">
 
     {/* Heading */}
-      <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
+      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
         Contact Me
       </h2>
       
@@ -102,8 +102,8 @@ export default function ContactForm() {
           type="submit"
           className="
             px-6 py-2.5 rounded-xl
-            bg-[#3a000c] text-white font-semibold 
-            hover:bg-[#590016]
+            bg-[#4e1f2f] text-white font-semibold 
+            hover:bg-[#4e1f2f]
             transition
             shadow-lg hover:shadow-xl
           "
@@ -113,7 +113,7 @@ export default function ContactForm() {
       </div>
 
       {/* Status Message */}
-      <p className="text-center text-sm text-gray-700">{status}</p>
+      <p className="text-center text-sm text-[#3f3a3a]">{status}</p>
     </form>
   );
 }

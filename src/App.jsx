@@ -17,10 +17,10 @@ import "@fontsource/playfair-display/800.css"; // bold
 export default function App() {
   return (
     <div className="relative"> {/* whole page wrapper */}
-      <BlobBackground />      {/* behind everything */}
+     <BlobBackground />      {/* behind everything */}
 
       <Navbar />
-      <div className="h-20" />
+      <div className="h-20"/>
 
       {/* Your page content */}
       <div className="max-w-6xl mx-auto p-6 space-y-5 relative z-10">

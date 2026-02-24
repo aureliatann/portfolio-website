@@ -78,7 +78,7 @@ export default function Projects() {
       title: "Language of Deception",
       subtitle: "Data Essay on a Kaggle Dataset",
       description: "Analyzed public datasets with Python, conducting text analysis and interpreting results through a social science lens.",
-      role: "Author and Programmer",
+      role: "Author/Programmer",
       tools: ["Python", "Pandas", "Seaborn", "NLTK", "Jupyter"],
       thumb: "/images/dataessay-thumb.png",
       video: "/videos/dataessay.mp4",
@@ -94,17 +94,14 @@ export default function Projects() {
     },
   ];
 
-  return (
+   return (
     <section id="projects" className="w-full py-12 space-y-8">
       {/* Heading */}
-      <h2 className="text-[#3a000c] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
+      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl">
         Projects
       </h2>
-      <p className="text-center text-lg sm:text-xl text-gray-600 leading-relaxed mx-auto">
-        Here’s a showcase of my personal projects, each highlighting the tools I’ve used that have helped refine my skillset.
-      </p>
-      
-      {/* ---------------- Project Grid ---------------- */}
+
+      {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         {projects.map((proj) => (
           <ProjectWithVideo key={proj.title} {...proj} />
@@ -113,14 +110,15 @@ export default function Projects() {
     </section>
   );
 }
-
-// ---------------- Project Card ----------------
+// ---------------- PROJECT CARD ----------------
 function ProjectWithVideo({ title, subtitle, description, role, tools, stack, thumb, video }) {
   const videoRef = useRef(null);
 
   return (
     <div
-      className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 text-primaryText group cursor-pointer transition-transform hover:scale-105 duration-300 overflow-hidden shadow-xl hover:shadow-2xl"
+      className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 
+             text-[#3f3a3a] group cursor-pointer transition-transform 
+             hover:scale-105 duration-300 overflow-hidden shadow-xl hover:shadow-2xl"
       onMouseEnter={() => {
         if (videoRef.current) {
           videoRef.current.currentTime = 0;
@@ -131,7 +129,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
         if (videoRef.current) videoRef.current.pause();
       }}
     >
-      {/* Fixed-height image/video container */}
+      {/* Thumbnail with hover video */}
       <div className="relative w-full h-72 overflow-hidden rounded-t-xl">
         <img
           src={thumb}
@@ -145,83 +143,88 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-full object-cover object-top 
+                       opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         )}
       </div>
 
-      <div className="p-6 space-y-2">
-        {/* Title + Role */}
+      <div className="p-6 space-y-3">
+      {/* Group title + subtitle */}
+      <div className="space-y-1"> {/* <- much smaller gap */}
         <div className="flex justify-between items-center">
-          <h3 className="text-[#3a000c] font-bold text-2xl sm:text-2.25xl">
+          <h3 className="text-[#4e1f2f] font-bold text-2xl sm:text-2.25xl">
             {title}
           </h3>
-          <p className="text-[#3a000c] text-lg sm:text-xl font-semibold">{role}</p>
+          <p className="text-[#4e1f2f] text-lg sm:text-xl font-semibold">{role}</p>
         </div>
-
-        {/* Subtitle */}
-        <p className="text-[#3a000c] text-base sm:text-lg">{subtitle}</p>
-
-        {/* ---------------- TECH STACK ---------------- */}
-{stack ? (
-  <div className="mt-3 space-y-3">
-
-    {/* Frontend */}
-    {stack.frontend?.length > 0 && (
-      <div className="flex items-center gap-2">
-        <p className="font-semibold text-[#3a000c] min-w-[80px]">Frontend</p>
-        <div className="flex flex-wrap gap-2">
-          {stack.frontend.map((tech) => (
-            <span
-              key={tech}
-              className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
-            >
-              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
-              {tech}
-            </span>
-          ))}
-        </div>
+        <p className="text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
       </div>
-    )}
 
-    {/* Backend (merged with Database) */}
-    {(stack.backend?.length > 0 || stack.database?.length > 0) && (
-      <div className="flex items-center gap-2">
-        <p className="font-semibold text-[#3a000c] min-w-[80px]">Backend</p>
-        <div className="flex flex-wrap gap-2">
-          {[...(stack.backend || []), ...(stack.database || [])].map((tech) => (
-            <span
-              key={tech}
-              className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
-            >
-              {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
-              {tech}
-            </span>
-          ))}
-        </div>
-      </div>
-    )}
+        {/* Tech Stack */}
+        {stack ? (
+          <div className="mt-3 space-y-3">
+            {/* Frontend */}
+            {stack.frontend?.length > 0 && (
+              <div className="flex items-center gap-3"> {/* gap between FE label and badges */}
+                <p className="font-bold text-[#4e1f2f]">{/* no min-w */}FE</p>
+                <div className="flex flex-wrap gap-1"> {/* badges closer together */}
+                  {stack.frontend.map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex items-center gap-1.5 px-2 py-0.5
+                                bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
+                                text-xs sm:text-sm border border-[#e5dcdc]"
+                    >
+                      {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
-  </div>
-) : (
-  /* Non-fullstack → tools list */
-  tools?.length > 0 && (
-    <div className="flex flex-wrap justify-start gap-3 mt-3">
-      {tools.map((tech) => (
-        <span
-          key={tech}
-          className="flex items-center gap-2 px-2.5 py-1 bg-gray-100 rounded-xl text-gray-700 text-xs sm:text-base"
-        >
-          {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
-          {tech}
-        </span>
-      ))}
-    </div>
-  )
-)}
+            {/* Backend */}
+            {(stack.backend?.length > 0 || stack.database?.length > 0) && (
+              <div className="flex items-center gap-3">
+                <p className="font-bold text-[#4e1f2f]">BE</p>
+                <div className="flex flex-wrap gap-1">
+                  {[...(stack.backend || []), ...(stack.database || [])].map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex items-center gap-1.5 px-2 py-0.5
+                                bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
+                                text-xs sm:text-sm border border-[#e5dcdc]"
+                    >
+                      {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* Tools for non-fullstack */
+          tools?.length > 0 && (
+            <div className="flex flex-wrap justify-start gap-3 mt-3">
+              {tools.map((tech) => (
+                <span
+                  key={tech}
+                  className="flex items-center gap-1.5 px-2 py-0.5
+                                 bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
+                                 text-xs sm:text-sm border border-[#e5dcdc]"
+                >
+                  {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )
+        )}
 
         {/* Description */}
-        <p className="text-base sm:text-lg text-primaryText mt-2 font-body">
+        <p className="text-base sm:text-lg text-[#3f3a3a] mt-2 font-body">
           {description}
         </p>
       </div>

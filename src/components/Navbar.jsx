@@ -49,12 +49,12 @@ export default function Navbar() {
       */}
       <div className="flex items-center justify-between px-6 sm:px-8 py-4">
         {/* Logo */}
-        <h1 className="text-[#3a000c] font-heading tracking-wider font-bold text-[2.5rem] sm:text-[2.8rem]">
+        <h1 className="text-[#4e1f2f] font-heading tracking-wider font-bold text-[2.5rem] sm:text-[2.8rem]">
           AT
         </h1>
 
         {/* Navigation links */}
-        <ul className="text-[#3a000c] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.5rem] sm:text-[1.8rem] font-medium">
+        <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.5rem] sm:text-[1.8rem] font-medium">
           {["about", "skills", "projects"].map((section) => (
             <li key={section} className="relative">
               <a
@@ -64,7 +64,7 @@ export default function Navbar() {
                   ${
                     active === section
                       ? "text-[#6a1e28] scale-125 -translate-y-1" // raises active tab slightly
-                      : "text-[#3a000c] hover:text-[#4B1A1A] hover:scale-105"
+                      : "text-[#4e1f2f] hover:text-[#4B1A1A] hover:scale-105"
                   }
                   after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#4B1A1A] after:transition-all after:duration-300
                   ${active === section ? "after:w-full" : "after:w-0 hover:after:w-full"}
