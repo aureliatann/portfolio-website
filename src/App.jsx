@@ -26,15 +26,28 @@ import "@fontsource/courier-prime/700.css"; // bold
 
 export default function App() {
   return (
-    <section className="relative w-full min-h-screen hero-gradient">
-    
-      {/* Your page content */}
-      <Navbar />
-      <div className="max-w-8xl mx-auto p-6 relative z-10">
+  <>
+    {/* Gradient only here */}
+    <section className="relative w-full hero-gradient">
+      <div className="max-w-8xl mx-auto px-6 py-1 relative z-10">
+        <Navbar />
         <About />
-        <Skills />
       </div>
-
     </section>
-  );
+
+    {/* No gradient here */}
+    <section className="w-full bg-[#fbfaf8]">
+      <div className="max-w-8xl mx-auto px-6 py-1">
+        <Skills />
+        <Projects />
+      </div>
+    </section>
+
+    {/* Footer gradient here */}
+    <section className="w-full">
+      <div className="max-w-8xl mx-auto px-6 py-1">
+      </div>
+    </section>
+  </>
+);
 }

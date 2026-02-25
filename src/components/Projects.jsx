@@ -33,8 +33,8 @@ const skillIcons = {
 export default function Projects() {
   const projects = [
     {
-      title: "Event Registration Portal",
-      subtitle: "Website for MUISA's The Forum 2026",
+      title: "The Forum 2026",
+      subtitle: "Event Registration Website",
       description: "Developed and deployed a Django portal to streamline event registration and ticketing via automated emails.",
       role: "Full-Stack Developer",
       stack: {
@@ -45,8 +45,8 @@ export default function Projects() {
       video: "",
     },
     {
-      title: "Personal Portfolio",
-      subtitle: "Website",
+      title: "AT",
+      subtitle: "Portfolio Website",
       description: "Developed an interactive portfolio website using the MERN stack, including a backend API for handling contact form submissions.",
       role: "Full-Stack Developer",
       stack: {
@@ -57,8 +57,17 @@ export default function Projects() {
       video: "",
     },
     {
+      title: "MUISA Website",
+      subtitle: "Organization Website",
+      description: "Designed and updated MUISA's public-facing website according to the ogranization's needs to enhance digital presence.",
+      role: "Designer",
+      tools: [],
+      thumb: "/images/ppiawebsite-thumb.png",
+      video: "/videos/ppiawebsite.mp4",
+    },
+    {
       title: "Overgrown",
-      subtitle: "2D RPG Game for CISSAxGMC Game Jam 2025",
+      subtitle: "2D RPG Game",
       description: "Designed art and UI assets and developed level layouts in Unity by managing prefabs and scene architecture.",
       role: "Designer",
       tools: ["Unity"],
@@ -66,7 +75,7 @@ export default function Projects() {
       video: "/videos/overgrown.mp4",
     },
     {
-      title: "Shadow Donkey Kong",
+      title: "Donkey Kong Clone",
       subtitle: "2D Platformer Game",
       description: "Applied OOP in Java to develop a platformer with responsive player controls, game mechanics, and gravity physics.",
       role: "Programmer",
@@ -76,33 +85,27 @@ export default function Projects() {
     },
     {
       title: "Language of Deception",
-      subtitle: "Data Essay on a Kaggle Dataset",
-      description: "Analyzed public datasets with Python, conducting text analysis and interpreting results through a social science lens.",
+      subtitle: "Data Essay",
+      description: "Analyzed Kaggle datasets with Python, conducting text analysis and interpreting results through a social science lens.",
       role: "Author/Programmer",
       tools: ["Python", "Pandas", "Seaborn", "NLTK", "Jupyter"],
       thumb: "/images/dataessay-thumb.png",
       video: "/videos/dataessay.mp4",
     },
-    {
-      title: "Organization Website",
-      subtitle: "Website for MUISA",
-      description: "Designed and updated MUISA's public-facing website according to the ogranization's needs to enhance digital presence.",
-      role: "Designer",
-      tools: [],
-      thumb: "/images/ppiawebsite-thumb.png",
-      video: "/videos/ppiawebsite.mp4",
-    },
   ];
 
    return (
-    <section id="projects" className="w-full py-12 space-y-8">
+    <section id="projects" className="w-full py-12 px-4 lg:px-10">
       {/* Heading */}
-      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl">
-        Projects
+      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] transform text-xl text-center">
+        ['24 - PORTFOLIO - '26']
+      </h2>
+      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] transform text-5xl text-center">
+        (FEATURED PROJECTS)
       </h2>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-8">
         {projects.map((proj) => (
           <ProjectWithVideo key={proj.title} {...proj} />
         ))}
@@ -153,12 +156,12 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
       {/* Group title + subtitle */}
       <div className="space-y-1"> {/* <- much smaller gap */}
         <div className="flex justify-between items-center">
-          <h3 className="text-[#4e1f2f] font-bold text-2xl sm:text-2.25xl">
+          <h3 className="font-heading text-[#0D0D0D] font-bold text-2xl sm:text-2.25xl">
             {title}
           </h3>
-          <p className="text-[#4e1f2f] text-lg sm:text-xl font-semibold">{role}</p>
+          <p className="font-heading text-[#0D0D0D] text-xs sm:text-md font-semibold">{role}</p>
         </div>
-        <p className="text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
+        <p className="font-body text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
       </div>
 
         {/* Tech Stack */}
@@ -166,13 +169,13 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
           <div className="mt-3 space-y-3">
             {/* Frontend */}
             {stack.frontend?.length > 0 && (
-              <div className="flex items-center gap-3"> {/* gap between FE label and badges */}
+              <div className="flex items-center gap-2"> {/* gap between FE label and badges */}
                 <p className="font-bold text-[#4e1f2f]">{/* no min-w */}FE</p>
                 <div className="flex flex-wrap gap-1"> {/* badges closer together */}
                   {stack.frontend.map((tech) => (
                     <span
                       key={tech}
-                      className="flex items-center gap-1.5 px-2 py-0.5
+                      className="flex items-center gap-1.5 px-1.5 py-0.5
                                 bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
                                 text-xs sm:text-sm border border-[#e5dcdc]"
                     >
@@ -186,13 +189,13 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
 
             {/* Backend */}
             {(stack.backend?.length > 0 || stack.database?.length > 0) && (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
                 <p className="font-bold text-[#4e1f2f]">BE</p>
                 <div className="flex flex-wrap gap-1">
                   {[...(stack.backend || []), ...(stack.database || [])].map((tech) => (
                     <span
                       key={tech}
-                      className="flex items-center gap-1.5 px-2 py-0.5
+                      className="flex items-center gap-1.5 px-1.5 py-0.5
                                 bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
                                 text-xs sm:text-sm border border-[#e5dcdc]"
                     >
