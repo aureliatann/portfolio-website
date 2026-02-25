@@ -21,17 +21,6 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/700.css";
 
-// In your project
-import "@fontsource/lora/400.css"; // Regular
-import "@fontsource/lora/400-italic.css"; // Italic
-
-// Merriweather
-import "@fontsource/merriweather/400.css"; // Regular
-import "@fontsource/merriweather/800.css"; // Bold
-
-// EB Garamond
-import "@fontsource/eb-garamond/400.css"; // Regular
-import "@fontsource/eb-garamond/800.css"; // Extra Bold
 
 export default function App() {
   return (

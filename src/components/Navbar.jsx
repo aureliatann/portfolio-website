@@ -39,7 +39,7 @@ export default function Navbar() {
        sticky top-0 → sticks to top
        z-50 → ensures navbar is on top
     */
-    <nav className="bg-[#f7f6ee] w-full sticky top-0 z-50">
+    <nav className="bg-[#F5F1E6] w-full sticky top-0 z-50">
       {/* flex → place items in a row
           items-center → vertically center items
           justify-between → space between logo and links
@@ -52,7 +52,7 @@ export default function Navbar() {
         </h1>
 
         {/* Navigation links */}
-        <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.5rem] sm:text-[1.8rem] font-medium">
+        <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.1rem] sm:text-[1.25rem] font-medium">
           {["about", "skills", "projects"].map((section) => (
             <li key={section} className="relative">
               <a

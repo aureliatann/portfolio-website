@@ -8,16 +8,18 @@
 /* Headings → Playfair Display Bold */
 .font-heading {
   @apply font-serif;
-  font-family: 'Montserrat', serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
 }
 
 /* Body → Inter Regular */
 .font-body {
   @apply font-sans; /* optional */
-  font-family: 'Times New Roman', sans-serif;
+  font-family: 'Georgia', sans-serif;
   font-weight: 500;
 }
+
+
 /* ------------------------------- */
 /* FLOATING ORGANIC BLOB ANIMATIONS */
 /* ------------------------------- */

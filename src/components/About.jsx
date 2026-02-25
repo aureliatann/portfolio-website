@@ -7,9 +7,9 @@ export default function About() {
 
         {/* Row 1: Right-aligned intro paragraph */}
         <div className="flex w-full justify-end">
-          <p className="text-[#0D0D0D] font-body leading-relaxed text-lg sm:text-xl max-w-4xl indent-20 text-justify">
-            Hello! 👋🏻 I'm currently a final-year Computer Science student at The University of Melbourne, aspiring to be a{' '}
-            {' '}<span className="font-heading uppercase text-xl sm:text-3xl">
+          <p className="text-[#0D0D0D] font-body text-lg sm:text-xl max-w-4xl indent-20 leading-tight">
+            Hello! 👋🏻 I'm currently a final-year Computer Science student at The University of Melbourne, aspiring to be a{" "}
+            <span className="font-heading uppercase text-xl sm:text-2xl leading-none align-baseline">
               full-stack developer
             </span>
             . I thrive at the intersection of design and development, driven by a passion for creating applications that enhance user experiences.
