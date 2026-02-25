@@ -39,7 +39,7 @@ export default function Navbar() {
        sticky top-0 → sticks to top
        z-50 → ensures navbar is on top
     */
-    <nav className="bg-[#F5F1E6] w-full sticky top-0 z-50">
+    <nav className="w-full top-0 z-50">
       {/* flex → place items in a row
           items-center → vertically center items
           justify-between → space between logo and links

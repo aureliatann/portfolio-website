@@ -15,11 +15,18 @@
 /* Body → Inter Regular */
 .font-body {
   @apply font-sans; /* optional */
-  font-family: 'Georgia', sans-serif;
-  font-weight: 500;
+  font-family: 'Courier Prime', sans-serif;
+  font-weight: 400;
 }
 
-
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    #e4d9d1 0%,
+    #e4d9d1 5%,
+    #fbfaf8 100%
+  );
+}
 /* ------------------------------- */
 /* FLOATING ORGANIC BLOB ANIMATIONS */
 /* ------------------------------- */

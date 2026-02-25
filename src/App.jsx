@@ -21,17 +21,20 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/700.css";
 
+import "@fontsource/courier-prime";       // 400
+import "@fontsource/courier-prime/700.css"; // bold
 
 export default function App() {
   return (
-    <section className="w-full min-h-screen 
-                   bg-[#F5F1E6]">
-
+    <section className="relative w-full min-h-screen hero-gradient">
+    
       {/* Your page content */}
       <Navbar />
-      <div className="max-w-8xl mx-auto p-6 space-y-5 relative z-10">
+      <div className="max-w-8xl mx-auto p-6 relative z-10">
         <About />
+        <Skills />
       </div>
-    </section> // <-- close the section here
+
+    </section>
   );
 }

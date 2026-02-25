@@ -2,13 +2,13 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export default function About() {
   return (
-    <section id="about" className="px-4 lg:px-10 py-12">
+    <section id="about" className="px-4 lg:px-10 py-6">
       <div className="mx-auto flex flex-col space-y-6">
 
         {/* Row 1: Right-aligned intro paragraph */}
         <div className="flex w-full justify-end">
-          <p className="text-[#0D0D0D] font-body text-lg sm:text-xl max-w-4xl indent-20 leading-tight">
-            Hello! 👋🏻 I'm currently a final-year Computer Science student at The University of Melbourne, aspiring to be a{" "}
+          <p className="text-[#0D0D0D] font-body text-lg sm:text-xl max-w-5xl indent-20 leading-tight">
+            Hello! 👋🏻 I'm currently a final-year Computer Science student at The University of Melbourne, aspiring to be a versatile{" "}
             <span className="font-heading uppercase text-xl sm:text-2xl leading-none align-baseline">
               full-stack developer
             </span>
@@ -18,7 +18,7 @@ export default function About() {
 
         {/* Row 2: Left-aligned hero text */}
         <div className="flex w-full justify-start flex-col space-y-2">
-          <h2 className="text-[4rem] sm:text-[8rem] font-heading tracking-wider font-bold text-[#0D0D0D] leading-[0.95] transform scale-y-135">
+          <h2 className="text-[5rem] sm:text-[8rem] font-heading tracking-wider font-bold text-[#0D0D0D] leading-[0.95] transform scale-y-135">
             AURELIA TAN
           </h2>
 
@@ -29,7 +29,7 @@ export default function About() {
               href="/pdfs/Aurelia Tan.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#4e1f2f] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg hover:bg-[#50171a] transition-colors duration-200"
+              className="bg-[#4e1f2f] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg transition-colors duration-200"
             >
               Resume
             </a>

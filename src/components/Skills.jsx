@@ -5,7 +5,7 @@ const skillIcons = {
   Java: "devicon-java-plain",
   C: "devicon-c-plain",
   HTML: "devicon-html5-plain",
-  CSS: "devicon-css3-plain", 
+  CSS: "devicon-css3-plain",
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
   SQLite: "devicon-sqlite-plain",
@@ -23,7 +23,7 @@ const skillIcons = {
   "Node.js": "devicon-nodejs-plain",
   "Express.js": "devicon-express-original",
   MongoDB: "devicon-mongodb-plain",
-  Mongoose: "devicon-mongoose-original"
+  Mongoose: "devicon-mongoose-original",
 };
 export default function Skills() {
   const skillsWithLogos = {
@@ -33,21 +33,28 @@ export default function Skills() {
     Tools: ["Git", "VS Code", "IntelliJ", "MATLAB", "R Studio", "Figma", "Unity", "Jupyter"],
   };
 
-  const SkillCard = ({ title, items }) => (
-    <div className="p-6 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-gray-200 w-full">
-      <h3 className="font-semibold text-2xl text-[#4e1f2f] mb-4 text-center">
-        {title}
-      </h3>
-
-      <div className="flex flex-wrap justify-center gap-4">
+  // --- CARD COMPONENT ---
+  const SkillCard = ({ items }) => (
+    <div
+      className="
+        w-[280px] h-[250px]
+        bg-white/80 backdrop-blur-md 
+        rounded-2xl shadow-xl border border-gray-200 p-3
+        flex
+      "
+    >
+      <div className="m-auto flex flex-wrap justify-center items-center gap-4 text-center">
         {items.map((skill) => (
           <span
             key={skill}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl 
-                       bg-[#f2e8e9] text-[#4e1f2f] text-sm sm:text-base 
-                       font-medium shadow-sm border border-[#e5dcdc]"
+            className="
+              flex items-center gap-2 px-4 py-2 
+              rounded-xl bg-[#f2e8e9] text-[#4e1f2f]
+              text-sm sm:text-base font-medium shadow-sm
+              border border-[#e5dcdc]
+            "
           >
-            {skillIcons[skill] && <i className={`${skillIcons[skill]} text-lg`} />}
+            <i className={`${skillIcons[skill]} text-lg`} />
             {skill}
           </span>
         ))}
@@ -56,21 +63,32 @@ export default function Skills() {
   );
 
   return (
-    <section id="skills" className="py-12 space-y-12">
-      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider text-center text-5xl sm:text-6xl drop-shadow-lg">
-        Technical Skills
-      </h2>
+    <section id="skills" className="px-4 lg:px-10 py-12">
+      <div className="flex gap-8 items-start max-w-[1200px]">
+        
+        {/* 1 — LANGUAGES */}
+        <div className="flex flex-col">
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[01] Languages</h3>
+          <SkillCard items={skillsWithLogos.Languages} />
+        </div>
 
-      {/* Top: responsive grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <SkillCard title="Languages" items={skillsWithLogos.Languages} />
-        <SkillCard title="Frameworks" items={skillsWithLogos.Frameworks} />
-        <SkillCard title="Databases" items={skillsWithLogos.Databases} />
-      </div>
+        {/* 2 — FRAMEWORKS */}
+        <div className="flex flex-col">
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[02] Frameworks</h3>
+          <SkillCard items={skillsWithLogos.Frameworks} />
+        </div>
 
-      {/* Bottom: developer tools always full width */}
-      <div className="grid grid-cols-1">
-        <SkillCard title="Developer Tools" items={skillsWithLogos.Tools} />
+        {/* 3 — DATABASES */}
+        <div className="flex flex-col">
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[03] Databases</h3>
+          <SkillCard items={skillsWithLogos.Databases} />
+        </div>
+
+        {/* 4 — TOOLS */}
+        <div className="flex flex-col">
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[04] Developer Tools</h3>
+          <SkillCard items={skillsWithLogos.Tools} />
+        </div>
       </div>
     </section>
   );
