@@ -33,87 +33,110 @@ export default function ContactForm() {
       setStatus("Error sending message.");
     }
   };
-
+  
+  
   return (
-    <form className="w-full bg-white/80 p-10 mb-20 rounded-2xl shadow-xl border border-gray-200 space-y-6">
+<section className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center">
 
+  {/* Left side - Footer / Info (smaller, left-aligned) */}
+  <div className="flex-[2.5] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
+    <h2 className="text-6xl font-bold text-[#4e1f2f]">AT</h2>
+    <h2 className="text-3xl font-bold">Let's Connect!</h2>
+    <p className="text-base">
+      I’m currently open to opportunities and collaborations.<br />
+      Feel free to reach out using the contact form.
+    </p>
+  </div>
+
+{/* Right side - Transparent Contact Form (5/8) */}
+<div className="flex-[5] flex justify-end items-start">
+  <form
+    className="w-full lg:w-5/6 xl:w-4/5 bg-transparent rounded-2xl space-y-2.5"
+    onSubmit={handleSubmit}
+  >
     {/* Heading */}
-      <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-center text-5xl sm:text-6xl font-bold">
-        Contact Me
-      </h2>
-      
-      {/* Inputs */}
-      <div className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="
-            w-full px-4 py-3
-            border border-gray-300 rounded-xl 
-            bg-white/70 backdrop-blur-sm
-            focus:ring-2 focus:ring-[#7a0022]
-            focus:border-transparent
-            transition
-          "
-          required
-        />
+    <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-right text-5xl sm:text-6xl font-bold mb-4">
+      Contact Me
+    </h2>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="
-            w-full px-4 py-3
-            border border-gray-300 rounded-xl 
-            bg-white/70 backdrop-blur-sm
-            focus:ring-2 focus:ring-[#7a0022]
-            focus:border-transparent
-            transition
-          "
-          required
-        />
+    {/* Inputs */}
+    <div className="space-y-2.5">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        value={formData.name}
+        onChange={handleChange}
+        className="
+          w-full px-0 py-2
+          border-b-2 border-[#e4d9d1]/50
+          bg-transparent
+          text-[#e4d9d1] placeholder-[#e4d9d1]/70
+          focus:border-[#e4d9d1] focus:ring-0
+          outline-none
+          transition
+        "
+        required
+      />
 
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          rows="5"
-          className="
-            w-full px-4 py-3
-            border border-gray-300 rounded-xl 
-            bg-white/70 backdrop-blur-sm
-            focus:ring-2 focus:ring-[#7a0022]
-            focus:border-transparent
-            transition
-          "
-          required
-        />
-      </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        value={formData.email}
+        onChange={handleChange}
+        className="
+          w-full px-0 py-2
+          border-b-2 border-[#e4d9d1]/50
+          bg-transparent
+          text-[#e4d9d1] placeholder-[#e4d9d1]/70
+          focus:border-[#e4d9d1] focus:ring-0
+          outline-none
+          transition
+        "
+        required
+      />
 
-      {/* Button */}
-      <div className="flex justify-center">
-        <button
-          type="submit"
-          className="
-            px-6 py-2.5 rounded-xl
-            bg-[#4e1f2f] text-white font-semibold 
-            hover:bg-[#4e1f2f]
-            transition
-            shadow-lg hover:shadow-xl
-          "
-        >
-          Send Message
-        </button>
-      </div>
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        value={formData.message}
+        onChange={handleChange}
+        rows="4"
+        className="
+          w-full px-0 py-2
+          border-b-2 border-[#e4d9d1]/50
+          bg-transparent
+          text-[#e4d9d1] placeholder-[#e4d9d1]/70
+          focus:border-[#e4d9d1] focus:ring-0
+          outline-none
+          transition
+        "
+        required
+      />
+    </div>
 
-      {/* Status Message */}
-      <p className="text-center text-sm text-[#3f3a3a]">{status}</p>
-    </form>
+    {/* Button */}
+    <div className="flex justify-end mt-3">
+      <button
+        type="submit"
+        className="
+          px-8 py-2 rounded-xl
+          bg-[#4e1f2f] text-[#e4d9d1] font-semibold 
+          hover:bg-[#3b0f1b]
+          transition
+          shadow-lg hover:shadow-xl
+        "
+      >
+        Send Message
+      </button>
+    </div>
+
+    {/* Status Message */}
+    <p className="text-right text-sm text-[#e4d9d1] mt-2">{status}</p>
+  </form>
+</div>
+
+</section>
   );
 }

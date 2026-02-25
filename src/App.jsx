@@ -36,7 +36,7 @@ export default function App() {
     </section>
 
     {/* No gradient here */}
-    <section className="w-full bg-[#fbfaf8]">
+    <section className="w-full middle-gradient">
       <div className="max-w-8xl mx-auto px-6 py-1">
         <Skills />
         <Projects />
@@ -44,8 +44,9 @@ export default function App() {
     </section>
 
     {/* Footer gradient here */}
-    <section className="w-full">
+    <section className="w-full footer-gradient">
       <div className="max-w-8xl mx-auto px-6 py-1">
+        <ContactForm />
       </div>
     </section>
   </>

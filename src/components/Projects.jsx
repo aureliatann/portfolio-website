@@ -7,7 +7,7 @@ const skillIcons = {
   Java: "devicon-java-plain",
   C: "devicon-c-plain",
   HTML: "devicon-html5-plain",
-  CSS: "devicon-css3-plain", 
+  CSS: "devicon-css3-plain",
   SQL: "devicon-mysql-plain",
   Django: "devicon-django-plain",
   SQLite: "devicon-sqlite-plain",
@@ -27,7 +27,7 @@ const skillIcons = {
   "Express.js": "devicon-express-original",
   MongoDB: "devicon-mongodb-plain",
   Mongoose: "devicon-mongoose-original"
-}
+};
 
 // -------------------- PROJECTS --------------------
 export default function Projects() {
@@ -59,7 +59,7 @@ export default function Projects() {
     {
       title: "MUISA Website",
       subtitle: "Organization Website",
-      description: "Designed and updated MUISA's public-facing website according to the ogranization's needs to enhance digital presence.",
+      description: "Designed and updated MUISA's public-facing website according to the organization's needs to enhance digital presence.",
       role: "Designer",
       tools: [],
       thumb: "/images/ppiawebsite-thumb.png",
@@ -94,32 +94,44 @@ export default function Projects() {
     },
   ];
 
-   return (
+  return (
     <section id="projects" className="w-full py-12 px-4 lg:px-10">
       {/* Heading */}
-      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] transform text-xl text-center">
+      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] text-xl text-center">
         ['24 - PORTFOLIO - '26']
       </h2>
-      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] transform text-5xl text-center">
+      <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] text-5xl text-center mt-2">
         (FEATURED PROJECTS)
       </h2>
 
       {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-8">
-        {projects.map((proj) => (
-          <ProjectWithVideo key={proj.title} {...proj} />
+        {projects.map((proj, idx) => (
+          <div key={proj.title} className="flex flex-col group h-full">
+            {/* Wrap number + card in flex-col and grow card to match tallest */}
+            <div className="flex flex-col h-full transform transition-transform duration-300 hover:scale-105">
+              {/* Number label */}
+              <h4 className="font-body text-xl text-[#0D0D0D] mb-1 transition-transform duration-300 group-hover:scale-105 origin-top-left">
+                [{String(idx + 1).padStart(2, "0")}]
+              </h4>
+
+              {/* Card */}
+              <ProjectWithVideo {...proj} />
+            </div>
+          </div>
         ))}
       </div>
     </section>
   );
 }
+
 // ---------------- PROJECT CARD ----------------
 function ProjectWithVideo({ title, subtitle, description, role, tools, stack, thumb, video }) {
   const videoRef = useRef(null);
 
   return (
     <div
-      className="rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 
+      className="flex flex-col h-full rounded-xl bg-white/80 backdrop-blur-md border border-gray-200 
              text-[#3f3a3a] group cursor-pointer transition-transform 
              hover:scale-105 duration-300 overflow-hidden shadow-xl hover:shadow-2xl"
       onMouseEnter={() => {
@@ -136,7 +148,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
       <div className="relative w-full h-72 overflow-hidden rounded-t-xl">
         <img
           src={thumb}
-          alt={`${title} thumbnail`}
+          alt={`${subtitle} thumbnail`}
           className="w-full h-full object-cover object-top"
         />
         {video && (
@@ -152,26 +164,25 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
         )}
       </div>
 
-      <div className="p-6 space-y-3">
-      {/* Group title + subtitle */}
-      <div className="space-y-1"> {/* <- much smaller gap */}
-        <div className="flex justify-between items-center">
-          <h3 className="font-heading text-[#0D0D0D] font-bold text-2xl sm:text-2.25xl">
-            {title}
-          </h3>
-          <p className="font-heading text-[#0D0D0D] text-xs sm:text-md font-semibold">{role}</p>
-        </div>
-        <p className="font-body text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
-      </div>
+      <div className="p-6 space-y-3 flex flex-col flex-grow">
+        {/* Project Title */}
+        <h3 className="font-heading font-bold text-2xl sm:text-2.25xl text-[#0D0D0D] mb-2">
+          {title}
+        </h3>
 
-        {/* Tech Stack */}
+        {/* Subtitle + Role */}
+        <div className="flex justify-between items-center">
+          <p className="font-body text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
+          <p className="font-heading text-[#0D0D0D] text-base sm:text-lg font-semibold">{role}</p>
+        </div>
+
+        {/* Tech Stack or Tools */}
         {stack ? (
           <div className="mt-3 space-y-3">
-            {/* Frontend */}
             {stack.frontend?.length > 0 && (
-              <div className="flex items-center gap-2"> {/* gap between FE label and badges */}
-                <p className="font-bold text-[#4e1f2f]">{/* no min-w */}FE</p>
-                <div className="flex flex-wrap gap-1"> {/* badges closer together */}
+              <div className="flex items-center gap-2">
+                <p className="font-bold text-[#4e1f2f]">FE</p>
+                <div className="flex flex-wrap gap-1">
                   {stack.frontend.map((tech) => (
                     <span
                       key={tech}
@@ -187,7 +198,6 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
               </div>
             )}
 
-            {/* Backend */}
             {(stack.backend?.length > 0 || stack.database?.length > 0) && (
               <div className="flex items-center gap-2">
                 <p className="font-bold text-[#4e1f2f]">BE</p>
@@ -208,15 +218,14 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
             )}
           </div>
         ) : (
-          /* Tools for non-fullstack */
           tools?.length > 0 && (
             <div className="flex flex-wrap justify-start gap-3 mt-3">
               {tools.map((tech) => (
                 <span
                   key={tech}
                   className="flex items-center gap-1.5 px-2 py-0.5
-                                 bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
-                                 text-xs sm:text-sm border border-[#e5dcdc]"
+                                bg-[#f2e8e9] rounded-xl text-[#4e1f2f] 
+                                text-xs sm:text-sm border border-[#e5dcdc]"
                 >
                   {skillIcons[tech] && <i className={`${skillIcons[tech]} text-xs`} />}
                   {tech}
@@ -227,7 +236,7 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
         )}
 
         {/* Description */}
-        <p className="text-base sm:text-lg text-[#3f3a3a] mt-2 font-body">
+        <p className="text-base sm:text-lg text-[#3f3a3a] mt-2 font-body flex-grow">
           {description}
         </p>
       </div>

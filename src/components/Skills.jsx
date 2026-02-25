@@ -68,25 +68,25 @@ export default function Skills() {
         
         {/* 1 — LANGUAGES */}
         <div className="flex flex-col">
-          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[01] Languages</h3>
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-1">[01] Languages</h3>
           <SkillCard items={skillsWithLogos.Languages} />
         </div>
 
         {/* 2 — FRAMEWORKS */}
         <div className="flex flex-col">
-          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[02] Frameworks</h3>
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-1">[02] Frameworks</h3>
           <SkillCard items={skillsWithLogos.Frameworks} />
         </div>
 
         {/* 3 — DATABASES */}
         <div className="flex flex-col">
-          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[03] Databases</h3>
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-1">[03] Databases</h3>
           <SkillCard items={skillsWithLogos.Databases} />
         </div>
 
         {/* 4 — TOOLS */}
         <div className="flex flex-col">
-          <h3 className="font-body text-xl text-[#0D0D0D] mb-3">[04] Developer Tools</h3>
+          <h3 className="font-body text-xl text-[#0D0D0D] mb-1">[04] Developer Tools</h3>
           <SkillCard items={skillsWithLogos.Tools} />
         </div>
       </div>

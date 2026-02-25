@@ -28,12 +28,24 @@
   );
 }
 
+
+.middle-gradient {
+  background: linear-gradient(
+    to bottom,
+    #fbfaf8 0%,      /* very light beige at top */
+    #f5efeb 70%,     /* soft muted beige */
+    #e3d4d2 80%,      /* pale dusty rose */
+    #d9b7b3 100%     /* pale dusty rose */
+  );
+}
+
 .footer-gradient {
   background: linear-gradient(
     to bottom,
-    #fbfaf8 0%,
-    #fbfaf8 80%,   /* keep top very light for a subtle fade */
-    #4e1f2f 100%
+    #d9b7b3 0%,     /* muted warm rose, slightly deeper */
+    #b77474 20%,     /* softened maroon */
+    #8c4d52 40%,     /* deeper muted maroon */
+    #4e1f2f 100%     /* deep maroon at bottom */
   );
 }
 
