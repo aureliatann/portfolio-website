@@ -172,8 +172,8 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
 
         {/* Subtitle + Role */}
         <div className="flex justify-between items-center">
-          <p className="font-body text-base sm:text-lg text-[#3f3a3a]">{subtitle}</p>
-          <p className="font-heading text-[#0D0D0D] text-base sm:text-lg font-semibold">{role}</p>
+          <p className="font-body text-base sm:text-md text-[#3f3a3a] mt-1">{subtitle}</p>
+          <p className="font-heading text-[#0D0D0D] text-base sm:text-md font-semibold">{role}</p>
         </div>
 
         {/* Tech Stack or Tools */}
