@@ -36,10 +36,12 @@ export default function ContactForm() {
   
   
   return (
-<section id="contact" className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center">
-
-  {/* Left side - Footer / Info (smaller, left-aligned) */}
-  <div className="flex-[3] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
+<section
+  id="contact"
+  className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center lg:items-center"
+>
+  {/* Left side */}
+  <div className="flex-[4] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
     <h2 className="text-6xl font-bold text-[#4e1f2f]">AT</h2>
     <h2 className="font-body text-3xl font-bold">Let's Connect!</h2>
     <p className="font-body text-base">
@@ -48,95 +50,93 @@ export default function ContactForm() {
     </p>
   </div>
 
-{/* Right side - Transparent Contact Form (5/8) */}
-<div className="flex-[5] flex justify-end items-start">
-  <form
-    className="w-full lg:w-5/6 xl:w-4/5 bg-transparent rounded-2xl space-y-2.5"
-    onSubmit={handleSubmit}
-  >
-    {/* Heading */}
-    <h2 className="font-body text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-right text-5xl font-bold">
-      (CONTACT ME)
-    </h2>
+  {/* Right side - Transparent Contact Form */}
+  <div className="flex-[6] flex justify-end items-center"> {/* items-center centers form vertically */}
+    <form
+      className="w-full max-w-2xl bg-transparent rounded-2xl space-y-4"
+      onSubmit={handleSubmit}
+    >
 
-    {/* Inputs */}
-    <div className="space-y-2.5">
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        value={formData.name}
-        onChange={handleChange}
-        className="
-          font-body w-full px-0 py-2
-          border-b-2 border-[#e4d9d1]/50
-          bg-transparent
-          text-[#e4d9d1] placeholder-[#e4d9d1]/70
-          focus:border-[#e4d9d1] focus:ring-0
-          outline-none
-          transition
-        "
-        required
-      />
+      {/* Inputs */}
+      <div className="flex gap-4 items-stretch h-full mt-8">
+        {/* Left column: Name & Email */}
+        <div className="flex flex-col gap-2.5 flex-1">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="
+              font-body w-full px-3 py-2
+              bg-[#fbfaf8]/30
+              border-b-2
+              text-[#4e1f2f]
+              placeholder-[#4e1f2f]/60 
+              rounded-md
+              transition
+            "
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className="
+              font-body w-full px-3 py-2
+              bg-[#fbfaf8]/30
+              border-b-2
+              text-[#4e1f2f]
+              placeholder-[#4e1f2f]/60 
+              rounded-md
+              transition
+            "
+            required
+          />
+        </div>
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        value={formData.email}
-        onChange={handleChange}
-        className="
-          font-body w-full px-0 py-2
-          border-b-2 border-[#e4d9d1]/50
-          bg-transparent
-          text-[#e4d9d1] placeholder-[#e4d9d1]/70
-          focus:border-[#e4d9d1] focus:ring-0
-          outline-none
-          transition
-        "
-        required
-      />
-
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        value={formData.message}
-        onChange={handleChange}
-        rows="4"
-        className="
-          font-body w-full px-0 py-2
-          border-b-2 border-[#e4d9d1]/50
-          bg-transparent
-          text-[#e4d9d1] placeholder-[#e4d9d1]/70
-          focus:border-[#e4d9d1] focus:ring-0
-          outline-none
-          transition
-        "
-        required
-      />
-    </div>
-
-    {/* Button */}
-    <div className="flex justify-end mt-3">
-      <button
-        type="submit"
-        className="
-          px-8 py-2 rounded-xl
-          bg-[#4e1f2f] text-[#e4d9d1] font-semibold 
-          hover:bg-[#3b0f1b]
-          transition
-          shadow-lg hover:shadow-xl
-        "
-      >
-        Send Message
-      </button>
-    </div>
-
-    {/* Status Message */}
-    <p className="text-right text-sm text-[#e4d9d1] mt-2">{status}</p>
-  </form>
-</div>
-
+        {/* Right column: Message */}
+        <div className="flex-1 flex flex-col h-full">
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            className="
+              font-body w-full h-full min-h-[95px] px-3 py-2
+              bg-[#fbfaf8]/30
+              border-b-2
+              text-[#4e1f2f]
+              placeholder-[#4e1f2f]/60 
+              rounded-md
+              transition
+            "
+            required
+          />
+        </div>
+        
+      </div>
+      {/* Heading + Button Row */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="font-body text-[#e4d9d1] font-extrabold tracking-wider leading-tight text-3xl">
+          (CONTACT ME)
+        </h2>
+        <button
+          type="submit"
+          className="
+            px-8 py-2 rounded-xl
+            bg-[#4e1f2f] text-[#e4d9d1] font-semibold 
+            hover:bg-[#3b0f1b]
+            transition
+          "
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
   );
 }
