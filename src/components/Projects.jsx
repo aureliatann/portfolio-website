@@ -98,7 +98,7 @@ export default function Projects() {
     <section id="projects" className="w-full py-12 px-4 lg:px-10">
       {/* Heading */}
       <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] text-xl text-center">
-        ['24 - PORTFOLIO - '26']
+        ['24 - PORTFOLIO - '26]
       </h2>
       <h2 className="font-body tracking-wider font-bold text-[#0D0D0D] text-5xl text-center mt-2">
         (FEATURED PROJECTS)

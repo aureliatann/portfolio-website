@@ -33,18 +33,18 @@
   background: linear-gradient(
     to bottom,
     #fbfaf8 0%,      /* very light beige at top */
-    #f5efeb 70%,     /* soft muted beige */
+    #f5efeb 60%,     /* soft muted beige */
     #e3d4d2 80%,      /* pale dusty rose */
-    #d9b7b3 100%     /* pale dusty rose */
+    #d9b7b3 90%,    /* pale dusty rose */
+    #b77474 100%     /* softened maroon */
   );
 }
 
 .footer-gradient {
   background: linear-gradient(
     to bottom,
-    #d9b7b3 0%,     /* muted warm rose, slightly deeper */
-    #b77474 20%,     /* softened maroon */
-    #8c4d52 40%,     /* deeper muted maroon */
+    #b77474 0%,     /* softened maroon */
+    #8c4d52 30%,     /* deeper muted maroon */
     #4e1f2f 100%     /* deep maroon at bottom */
   );
 }
