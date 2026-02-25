@@ -53,7 +53,7 @@ export default function Navbar() {
 
         {/* Navigation links */}
         <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.1rem] sm:text-[1.25rem] font-medium">
-          {["about", "skills", "projects"].map((section) => (
+          {["about", "projects", "contact"].map((section) => (
             <li key={section} className="relative">
               <a
                 href={`#${section}`}

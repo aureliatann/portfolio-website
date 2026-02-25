@@ -36,13 +36,13 @@ export default function ContactForm() {
   
   
   return (
-<section className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center">
+<section id="contact" className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center">
 
   {/* Left side - Footer / Info (smaller, left-aligned) */}
-  <div className="flex-[2.5] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
+  <div className="flex-[3] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
     <h2 className="text-6xl font-bold text-[#4e1f2f]">AT</h2>
-    <h2 className="text-3xl font-bold">Let's Connect!</h2>
-    <p className="text-base">
+    <h2 className="font-body text-3xl font-bold">Let's Connect!</h2>
+    <p className="font-body text-base">
       I’m currently open to opportunities and collaborations.<br />
       Feel free to reach out using the contact form.
     </p>
@@ -55,8 +55,8 @@ export default function ContactForm() {
     onSubmit={handleSubmit}
   >
     {/* Heading */}
-    <h2 className="text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-right text-5xl sm:text-6xl font-bold mb-4">
-      Contact Me
+    <h2 className="font-body text-[#4e1f2f] font-heading font-extrabold tracking-wider leading-tight drop-shadow-lg text-right text-5xl font-bold">
+      (CONTACT ME)
     </h2>
 
     {/* Inputs */}
@@ -68,7 +68,7 @@ export default function ContactForm() {
         value={formData.name}
         onChange={handleChange}
         className="
-          w-full px-0 py-2
+          font-body w-full px-0 py-2
           border-b-2 border-[#e4d9d1]/50
           bg-transparent
           text-[#e4d9d1] placeholder-[#e4d9d1]/70
@@ -86,7 +86,7 @@ export default function ContactForm() {
         value={formData.email}
         onChange={handleChange}
         className="
-          w-full px-0 py-2
+          font-body w-full px-0 py-2
           border-b-2 border-[#e4d9d1]/50
           bg-transparent
           text-[#e4d9d1] placeholder-[#e4d9d1]/70
@@ -104,7 +104,7 @@ export default function ContactForm() {
         onChange={handleChange}
         rows="4"
         className="
-          w-full px-0 py-2
+          font-body w-full px-0 py-2
           border-b-2 border-[#e4d9d1]/50
           bg-transparent
           text-[#e4d9d1] placeholder-[#e4d9d1]/70
