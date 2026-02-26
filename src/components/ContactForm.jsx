@@ -42,7 +42,7 @@ export default function ContactForm() {
 >
   {/* Left side */}
   <div className="flex-[4] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
-    <h2 className="text-6xl font-bold text-[#4e1f2f]">AT</h2>
+    <h2 className="text-6xl font-bold text-[#4e1f2f] scale-y-135">AT</h2>
     <h2 className="font-body text-3xl font-bold">Let's Connect!</h2>
     <p className="font-body text-base">
       I’m currently open to opportunities and collaborations.<br />
