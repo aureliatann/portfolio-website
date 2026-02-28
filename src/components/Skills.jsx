@@ -39,24 +39,24 @@ function SkillCard({ items }) {
   return (
     <div
       className="
-        w-[280px] h-[250px]
+        w-full h-full min-h-[180px]
         bg-white/80 backdrop-blur-md
-        rounded-2xl shadow-xl border border-gray-200 p-3
+        rounded-2xl shadow-xl border border-gray-200 p-4
         flex
       "
     >
-      <div className="m-auto flex flex-wrap justify-center items-center gap-4 text-center">
+      <div className="m-auto flex flex-wrap justify-center items-center gap-3 text-center">
         {items.map((skill) => (
           <span
             key={skill}
             className="
-              flex items-center gap-2 px-4 py-2
+              flex items-center gap-2 px-3 py-1.5
               rounded-xl bg-[#f2e8e9] text-[#4e1f2f]
-              text-sm sm:text-base font-medium shadow-sm
-              border border-[#e5dcdc]
+              text-xs sm:text-sm md:text-base
+              font-medium shadow-sm border border-[#e5dcdc]
             "
           >
-            <i className={`${skillIcons[skill]} text-lg`} />
+            <i className={`${skillIcons[skill]} text-sm sm:text-base md:text-lg`} />
             {skill}
           </span>
         ))}
@@ -68,18 +68,20 @@ function SkillCard({ items }) {
 // -------------------- SKILLS --------------------
 export default function Skills() {
   const categories = [
-    { label: "[01] Languages",        key: "Languages"  },
-    { label: "[02] Frameworks",       key: "Frameworks" },
-    { label: "[03] Databases",        key: "Databases"  },
-    { label: "[04] Developer Tools",  key: "Tools"      },
+    { label: "[01] Languages",       key: "Languages"  },
+    { label: "[02] Frameworks",      key: "Frameworks" },
+    { label: "[03] Databases",       key: "Databases"  },
+    { label: "[04] Developer Tools", key: "Tools"      },
   ];
 
   return (
     <section id="skills" className="px-4 lg:px-10 py-12">
-      <div className="flex gap-8 items-start max-w-[1200px]">
+      <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 w-full max-w-[1200px]">
         {categories.map(({ label, key }) => (
           <div key={key} className="flex flex-col">
-            <h3 className="font-body text-xl text-[#0D0D0D] mb-1">{label}</h3>
+            <h3 className="font-body text-sm sm:text-lg md:text-xl text-[#0D0D0D] mb-2">
+              {label}
+            </h3>
             <SkillCard items={skillsWithLogos[key]} />
           </div>
         ))}

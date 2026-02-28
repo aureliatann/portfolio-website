@@ -14,7 +14,7 @@ const inputClass = `
 // -------------------- CONTACT FORM --------------------
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus]     = useState("");
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,17 +44,23 @@ export default function ContactForm() {
       setStatus("Error sending message.");
     }
 
-    // Clear message after 3 seconds
     setTimeout(() => setStatus(""), 3000);
   };
 
   return (
     <section
       id="contact"
-      className="w-full flex flex-col lg:flex-row px-4 lg:px-10 py-12 gap-10 items-center lg:items-center"
+      className="
+        w-full flex flex-col lg:flex-row px-4 lg:px-10 py-6 gap-10
+        items-center lg:items-center
+      "
     >
-      {/* Left side */}
-      <div className="flex-[4] flex flex-col justify-center items-start text-[#e4d9d1] space-y-4">
+      {/* LEFT SIDE */}
+      <div className="
+        flex flex-col flex-1 w-full text-[#e4d9d1] space-y-4
+        text-center lg:text-left 
+        items-center lg:items-start
+      ">
         <h2 className="text-6xl font-bold text-[#4e1f2f] scale-y-135">AT</h2>
         <h2 className="font-body text-3xl font-bold">Let's Connect!</h2>
         <p className="font-body text-base">
@@ -63,30 +69,29 @@ export default function ContactForm() {
         </p>
       </div>
 
-      {/* Right side - Contact Form */}
-      <div className="flex-[6] flex justify-end items-center">
+      {/* RIGHT SIDE — FORM */}
+      <div className="flex flex-1 w-full justify-center lg:justify-end">
         <form
-          className="w-full max-w-2xl bg-transparent rounded-2xl space-y-4"
           onSubmit={handleSubmit}
+          className="
+            w-full 
+            max-w-2xl 
+            bg-transparent 
+            rounded-2xl 
+            space-y-4
+          "
         >
-          {/* Status Message */}
+          {/* STATUS MSG */}
           {status && (
-            <p
-              className="
-                text-[#e4d9d1] text-center
-                font-body text-sm
-                transition-opacity duration-300
-              "
-            >
+            <p className="text-[#e4d9d1] text-center font-body text-sm transition-opacity duration-300">
               {status}
             </p>
           )}
 
-          {/* Inputs */}
-          <div className="flex gap-4 items-stretch h-full mt-3">
-
+          {/* INPUTS */}
+          <div className="flex gap-4 items-start mt-3 flex-col sm:flex-row">
             {/* Left column: Name & Email */}
-            <div className="flex flex-col gap-2.5 flex-1">
+            <div className="flex flex-col gap-2.5 flex-1 w-full">
               <input
                 type="text"
                 name="name"
@@ -108,7 +113,7 @@ export default function ContactForm() {
             </div>
 
             {/* Right column: Message */}
-            <div className="flex-1 flex flex-col h-full">
+            <div className="flex-1 flex flex-col w-full">
               <textarea
                 name="message"
                 placeholder="Your Message"
@@ -118,10 +123,9 @@ export default function ContactForm() {
                 required
               />
             </div>
-
           </div>
 
-          {/* Heading + Submit Button */}
+          {/* Heading + Button */}
           <div className="flex justify-between items-center mb-2">
             <h2 className="font-body text-[#e4d9d1] font-extrabold tracking-wider leading-tight text-3xl">
               (CONTACT ME)
@@ -140,7 +144,6 @@ export default function ContactForm() {
               Send Message
             </button>
           </div>
-
         </form>
       </div>
     </section>
