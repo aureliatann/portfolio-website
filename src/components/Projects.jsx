@@ -54,7 +54,7 @@ export default function Projects() {
         backend: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
       },
       thumb: "/images/portfolio-thumb.png",
-      video: "",
+      video: "/videos/portfolio.mp4",
     },
     {
       title: "MUISA Website",
@@ -158,8 +158,9 @@ function ProjectWithVideo({ title, subtitle, description, role, tools, stack, th
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-top 
-                       opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 w-full h-[101%] object-cover object-top 
+             top-[-1px]
+             opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           />
         )}
       </div>
