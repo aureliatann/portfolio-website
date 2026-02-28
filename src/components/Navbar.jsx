@@ -53,7 +53,7 @@ export default function Navbar() {
     // Attach the handleScroll function to the window's scroll event (handleScroll will run every time the user scrolls)
     window.addEventListener("scroll", handleScroll);
 
-    // CLEANUP FUNCTION -> removes the event listener when the component unmounts (Prevents memory leaks and duplicate event listeners)
+    // CLEANUP FUNCTION (Runs if App dismounts) -> removes the event listener when the component unmounts (Prevents memory leaks and duplicate event listeners)
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
