@@ -15,18 +15,19 @@ import "@fontsource/courier-prime";
 import "@fontsource/courier-prime/700.css";
 
 import React, { useState, useEffect } from "react";
+
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import ContactForm from "./components/ContactForm";
+import SplashScreen from "./components/SplashScreen"; // ⭐ NEW
 import "./index.css";
 
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fadeSplash, setFadeSplash] = useState(false);
 
-  // Track which main sections are visible
   const [visible, setVisible] = useState({
     navbar: false,
     about: false,
@@ -36,17 +37,16 @@ export default function App() {
   });
 
   useEffect(() => {
-    // Splash fade out after 2s
-    const fadeTimer = setTimeout(() => setFadeSplash(true), 1500);
-    const removeTimer = setTimeout(() => setShowSplash(false), 2000);
+    const fadeTimer = setTimeout(() => setFadeSplash(true), 1300);
+    const removeTimer = setTimeout(() => setShowSplash(false), 1800);
 
-    // Section-level stagger
-    const staggerDelays = [0, 100, 200, 300, 400];
     const sections = ["navbar", "about", "skills", "projects", "contact"];
+    const delays = [0, 200, 400, 600, 800];
+
     sections.forEach((section, i) => {
       setTimeout(() => {
         setVisible((prev) => ({ ...prev, [section]: true }));
-      }, 2500 + staggerDelays[i]); // start after splash removed
+      }, 2000 + delays[i]);
     });
 
     return () => {
@@ -60,53 +60,58 @@ export default function App() {
       {showSplash && <SplashScreen fadeOut={fadeSplash} />}
 
       <main>
-        {/* Hero */}
         <section className="relative w-full hero-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2 relative z-10">
-            <div className={`transition-opacity duration-500 ${visible.navbar ? "opacity-100" : "opacity-0"}`}>
+            <div
+              className={`transition-opacity duration-500 ${
+                visible.navbar ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <Navbar />
             </div>
-            <div className={`transition-opacity duration-500 ${visible.about ? "opacity-100" : "opacity-0"}`}>
+
+            <div
+              className={`transition-opacity duration-500 ${
+                visible.about ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <About />
             </div>
           </div>
         </section>
 
-        {/* Middle */}
         <section className="w-full middle-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2">
-            <div className={`transition-opacity duration-500 ${visible.skills ? "opacity-100" : "opacity-0"}`}>
+            <div
+              className={`transition-opacity duration-500 ${
+                visible.skills ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <Skills />
             </div>
-            <div className={`transition-opacity duration-500 ${visible.projects ? "opacity-100" : "opacity-0"}`}>
+
+            <div
+              className={`transition-opacity duration-500 ${
+                visible.projects ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <Projects />
             </div>
           </div>
         </section>
 
-        {/* Footer */}
         <section className="w-full footer-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2">
-            <div className={`transition-opacity duration-500 ${visible.contact ? "opacity-100" : "opacity-0"}`}>
+            <div
+              className={`transition-opacity duration-500 ${
+                visible.contact ? "opacity-100" : "opacity-0"
+              }`}
+            >
               <ContactForm />
             </div>
           </div>
         </section>
       </main>
     </>
-  );
-}
-
-// Splash screen with subtitle
-function SplashScreen({ fadeOut }) {
-  return (
-    <div
-      className={`fixed inset-0 flex flex-col items-center justify-center bg-[#4e1f2f] z-50 transition-opacity duration-700 ${
-        fadeOut ? "opacity-0" : "opacity-100"
-      }`}
-    >
-      <h1 className="font-heading text-8xl md:text-10xl text-[#e4d9d1] scale-y-135">AT</h1>
-      <h2 className="font-heading text-LG md:text-xl text-[#e4d9d1] mt-4 tracking-wider">FULL-STACK DEVELOPER</h2>
-    </div>
   );
 }

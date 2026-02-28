@@ -33,6 +33,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* NEW: smooth scroll using scrollIntoView() */
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     /* w-full → full width
        bg-white → white background
@@ -55,8 +66,9 @@ export default function Navbar() {
         <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.1rem] sm:text-[1.25rem] font-medium">
           {["about", "projects", "contact"].map((section) => (
             <li key={section} className="relative">
-              <a
-                href={`#${section}`}
+              {/* ⭐ Changed <a> to <button> and added smooth scroll */}
+              <button
+                onClick={() => scrollToSection(section)}
                 className={`
                   inline-block relative transition-transform duration-300 transform
                   ${
@@ -69,7 +81,7 @@ export default function Navbar() {
                 `}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
+              </button>
             </li>
           ))}
         </ul>

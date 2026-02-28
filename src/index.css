@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Headings → Playfair Display Bold */
 .font-heading {
   @apply font-serif;
@@ -98,51 +102,4 @@ html, body {
 }
 .stagger-container .stagger-item:nth-child(4) {
   animation-delay: 0.8s;
-}
-/* ------------------------------- */
-/* FLOATING ORGANIC BLOB ANIMATIONS */
-/* ------------------------------- */
-.blob {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  filter: blur(80px);
-  opacity: 0.35;
-  animation: morph 15s infinite ease-in-out;
-  border-radius: 40% 60% 70% 30% / 30% 40% 60% 70%;
-}
-
-/* Blob positions, colors, delays for natural spread */
-.blob1 { top: 5%; left: 10%; background: #6b1f24; animation-delay: -2s; }
-.blob2 { top: 20%; left: 70%; background: #6b1f24; animation-delay: -5s; }
-.blob3 { top: 35%; left: 20%; background: #6b1f24; animation-delay: -3s; width: 400px; height: 400px; }
-.blob4 { top: 50%; left: 60%; background: #6b1f24; animation-delay: -7s; width: 300px; height: 300px; }
-.blob5 { top: 65%; left: 15%; background: #6b1f24; animation-delay: -1s; width: 350px; height: 350px; }
-.blob6 { top: 75%; left: 75%; background: #6b1f24; animation-delay: -4s; width: 450px; height: 450px; }
-.blob7 { top: 10%; left: 50%; background: #6b1f24; animation-delay: -6s; width: 300px; height: 300px; }
-.blob8 { top: 40%; left: 85%; background: #6b1f24; animation-delay: -8s; width: 400px; height: 400px; }
-.blob9 { top: 85%; left: 40%; background: #6b1f24; animation-delay: -2s; width: 350px; height: 350px; }
-.blob10{ top: 60%; left: 35%; background: #6b1f24; animation-delay: -5s; width: 300px; height: 300px; }
-
-@keyframes morph {
-  0% {
-    border-radius: 42% 58% 63% 37% / 35% 45% 55% 65%;
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    border-radius: 58% 42% 35% 65% / 60% 30% 40% 70%;
-    transform: translate(30px, -20px) scale(1.05);
-  }
-  50% {
-    border-radius: 50% 50% 60% 40% / 40% 50% 60% 50%;
-    transform: translate(-20px, 30px) scale(1.1);
-  }
-  75% {
-    border-radius: 55% 45% 40% 60% / 50% 35% 65% 50%;
-    transform: translate(10px, -30px) scale(1.05);
-  }
-  100% {
-    border-radius: 42% 58% 63% 37% / 35% 45% 55% 65%;
-    transform: translate(0, 0) scale(1);
-  }
 }
