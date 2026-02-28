@@ -1,105 +1,81 @@
-/* Tailwind base import */
+/* -------------------- TAILWIND -------------------- */
 @import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* -------------------- BASE -------------------- */
 html {
   scroll-behavior: smooth;
 }
 
-/* Headings → Playfair Display Bold */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+/* -------------------- TYPOGRAPHY -------------------- */
 .font-heading {
   @apply font-serif;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
 }
 
-/* Body → Inter Regular */
 .font-body {
-  @apply font-sans; /* optional */
+  @apply font-sans;
   font-family: 'Courier Prime', sans-serif;
   font-weight: 400;
 }
 
+/* -------------------- GRADIENTS -------------------- */
 .hero-gradient {
   background: linear-gradient(
     to bottom,
-    #e4d9d1 0%,
-    #e4d9d1 5%,
+    #e4d9d1  0%,
+    #e4d9d1  5%,
     #fbfaf8 100%
   );
 }
 
-
 .middle-gradient {
   background: linear-gradient(
     to bottom,
-    #fbfaf8 0%,      /* very light beige at top */
-    #f5efeb 60%,     /* soft muted beige */
-    #e3d4d2 80%,      /* pale dusty rose */
-    #d9b7b3 90%,    /* pale dusty rose */
-    #b77474 100%     /* softened maroon */
+    #fbfaf8  0%,
+    #f5efeb 60%,
+    #e3d4d2 80%,
+    #d9b7b3 90%,
+    #b77474 100%
   );
 }
 
 .footer-gradient {
   background: linear-gradient(
     to bottom,
-    #b77474 0%,     /* softened maroon */
-    #8c4d52 30%,     /* deeper muted maroon */
-    #4e1f2f 100%     /* deep maroon at bottom */
+    #b77474  0%,
+    #8c4d52 30%,
+    #4e1f2f 100%
   );
 }
 
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-  overscroll-behavior: none; /* prevents scrolling past the edges */
-}
-
+/* -------------------- ANIMATIONS -------------------- */
 @keyframes fadeInStagger {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Fade in for each element */
-@keyframes fadeInStagger {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0);    }
 }
 
 .animate-fade-in-stagger {
   animation: fadeInStagger 1s ease forwards;
 }
 
-/* Stagger main content items */
 .stagger-container .stagger-item {
   opacity: 0;
   animation: fadeInStagger 0.8s ease forwards;
 }
 
-.stagger-container .stagger-item:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.stagger-container .stagger-item:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.stagger-container .stagger-item:nth-child(3) {
-  animation-delay: 0.6s;
-}
-.stagger-container .stagger-item:nth-child(4) {
-  animation-delay: 0.8s;
-}
+.stagger-container .stagger-item:nth-child(1) { animation-delay: 0.2s; }
+.stagger-container .stagger-item:nth-child(2) { animation-delay: 0.4s; }
+.stagger-container .stagger-item:nth-child(3) { animation-delay: 0.6s; }
+.stagger-container .stagger-item:nth-child(4) { animation-delay: 0.8s; }

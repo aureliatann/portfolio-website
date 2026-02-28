@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react";
 
+// -------------------- ADMIN PAGE --------------------
 export default function AdminPage() {
   const [messages, setMessages] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [loading, setLoading]   = useState(true);
+  const [error, setError]       = useState("");
 
-  // Fetch messages from backend
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const res = await fetch("http://localhost:5050/messages");
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const data = await res.json();
         setMessages(data);
       } catch (err) {
@@ -27,7 +25,7 @@ export default function AdminPage() {
   }, []);
 
   if (loading) return <p>Loading messages...</p>;
-  if (error) return <p className="text-red-600">{error}</p>;
+  if (error)   return <p className="text-red-600">{error}</p>;
 
   return (
     <div className="p-6">

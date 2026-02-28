@@ -10,9 +10,11 @@ import { useState, useEffect } from "react";
                   return must return ONE thing (so wrap everything in one parent element)
 */
 
+// -------------------- NAVBAR --------------------
 export default function Navbar() {
   const [active, setActive] = useState("about");
 
+  // Highlight nav link based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["about", "skills", "projects"];
@@ -33,31 +35,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* NEW: smooth scroll using scrollIntoView() */
+  // Smooth scroll to section
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    /* w-full → full width
-       bg-white → white background
-       sticky top-0 → sticks to top
-       z-50 → ensures navbar is on top
-    */
     <nav className="w-full top-0 z-50">
-      {/* flex → place items in a row
-          items-center → vertically center items
-          justify-between → space between logo and links
-          px-6 sm:px-8 → increased padding on sides
-          py-4 → vertical padding
-      */}
       <div className="flex items-center justify-between px-6 sm:px-8 py-4">
+
+        {/* Logo */}
         <h1 className="text-[#4e1f2f] scale-y-135 font-heading tracking-wider font-bold text-[2.5rem] sm:text-[2.8rem]">
           AT
         </h1>
@@ -66,17 +54,16 @@ export default function Navbar() {
         <ul className="text-[#4e1f2f] font-heading tracking-wider font-bold flex gap-8 sm:gap-10 md:gap-12 lg:gap-15 text-[1.1rem] sm:text-[1.25rem] font-medium">
           {["about", "projects", "contact"].map((section) => (
             <li key={section} className="relative">
-              {/* ⭐ Changed <a> to <button> and added smooth scroll */}
               <button
                 onClick={() => scrollToSection(section)}
                 className={`
                   inline-block relative transition-transform duration-300 transform
-                  ${
-                    active === section
-                      ? "text-[#6a1e28] scale-125 -translate-y-1" // raises active tab slightly
-                      : "text-[#4e1f2f] hover:text-[#4B1A1A] hover:scale-105"
+                  ${active === section
+                    ? "text-[#6a1e28] scale-125 -translate-y-1"
+                    : "text-[#4e1f2f] hover:text-[#4B1A1A] hover:scale-105"
                   }
-                  after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#4B1A1A] after:transition-all after:duration-300
+                  after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#4B1A1A]
+                  after:transition-all after:duration-300
                   ${active === section ? "after:w-full" : "after:w-0 hover:after:w-full"}
                 `}
               >
@@ -85,6 +72,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
       </div>
     </nav>
   );

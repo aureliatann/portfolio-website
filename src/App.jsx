@@ -16,99 +16,75 @@ import "@fontsource/courier-prime/700.css";
 
 import React, { useState, useEffect } from "react";
 
-import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
+import Navbar      from "./components/Navbar";
+import About       from "./components/About";
+import Skills      from "./components/Skills";
+import Projects    from "./components/Projects";
 import ContactForm from "./components/ContactForm";
-import SplashScreen from "./components/SplashScreen"; // ⭐ NEW
+import SplashScreen from "./components/SplashScreen";
 import "./index.css";
 
+// -------------------- SECTION FADE CONFIG --------------------
+const SECTIONS  = ["navbar", "about", "skills", "projects", "contact"];
+const DELAYS    = [0, 200, 400, 600, 800];
+const SPLASH_FADE_DELAY   = 1300;
+const SPLASH_REMOVE_DELAY = 1800;
+const SECTION_START_DELAY = 2000;
+
+// -------------------- APP --------------------
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fadeSplash, setFadeSplash] = useState(false);
 
-  const [visible, setVisible] = useState({
-    navbar: false,
-    about: false,
-    skills: false,
-    projects: false,
-    contact: false,
-  });
+  const [visible, setVisible] = useState(
+    Object.fromEntries(SECTIONS.map((s) => [s, false]))
+  );
 
   useEffect(() => {
-    const fadeTimer = setTimeout(() => setFadeSplash(true), 1300);
-    const removeTimer = setTimeout(() => setShowSplash(false), 1800);
+    const fadeTimer   = setTimeout(() => setFadeSplash(true),    SPLASH_FADE_DELAY);
+    const removeTimer = setTimeout(() => setShowSplash(false),   SPLASH_REMOVE_DELAY);
 
-    const sections = ["navbar", "about", "skills", "projects", "contact"];
-    const delays = [0, 200, 400, 600, 800];
-
-    sections.forEach((section, i) => {
+    const sectionTimers = SECTIONS.map((section, i) =>
       setTimeout(() => {
         setVisible((prev) => ({ ...prev, [section]: true }));
-      }, 2000 + delays[i]);
-    });
+      }, SECTION_START_DELAY + DELAYS[i])
+    );
 
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(removeTimer);
+      sectionTimers.forEach(clearTimeout);
     };
   }, []);
+
+  const fadeClass = (key) =>
+    `transition-opacity duration-500 ${visible[key] ? "opacity-100" : "opacity-0"}`;
 
   return (
     <>
       {showSplash && <SplashScreen fadeOut={fadeSplash} />}
 
       <main>
+        {/* Hero */}
         <section className="relative w-full hero-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2 relative z-10">
-            <div
-              className={`transition-opacity duration-500 ${
-                visible.navbar ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Navbar />
-            </div>
-
-            <div
-              className={`transition-opacity duration-500 ${
-                visible.about ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <About />
-            </div>
+            <div className={fadeClass("navbar")}><Navbar /></div>
+            <div className={fadeClass("about")} ><About /></div>
           </div>
         </section>
 
+        {/* Middle */}
         <section className="w-full middle-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2">
-            <div
-              className={`transition-opacity duration-500 ${
-                visible.skills ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Skills />
-            </div>
-
-            <div
-              className={`transition-opacity duration-500 ${
-                visible.projects ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Projects />
-            </div>
+            <div className={fadeClass("skills")}  ><Skills /></div>
+            <div className={fadeClass("projects")}><Projects /></div>
           </div>
         </section>
 
+        {/* Footer */}
         <section className="w-full footer-gradient">
           <div className="max-w-8xl mx-auto px-6 py-2">
-            <div
-              className={`transition-opacity duration-500 ${
-                visible.contact ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <ContactForm />
-            </div>
+            <div className={fadeClass("contact")}><ContactForm /></div>
           </div>
         </section>
       </main>

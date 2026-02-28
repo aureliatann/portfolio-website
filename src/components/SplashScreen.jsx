@@ -1,5 +1,6 @@
 import React from "react";
 
+// -------------------- SPLASH SCREEN --------------------
 export default function SplashScreen({ fadeOut }) {
   return (
     <div
@@ -19,7 +20,6 @@ export default function SplashScreen({ fadeOut }) {
         <h1 className="font-heading text-9xl md:text-11xl text-[#e4d9d1] scale-y-135">
           AT
         </h1>
-
         <h2 className="font-heading text-xl md:text-2xl text-[#e4d9d1] mt-4 tracking-wider">
           FULL-STACK DEVELOPER
         </h2>
@@ -28,14 +28,8 @@ export default function SplashScreen({ fadeOut }) {
       <style>
         {`
           @keyframes fadeScaleTogether {
-            0% {
-              opacity: 0;
-              transform: scale(0.75);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
+            0%   { opacity: 0; transform: scale(0.75); }
+            100% { opacity: 1; transform: scale(1);    }
           }
         `}
       </style>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import AdminPage from "./AdminPage";
 
+// -------------------- ADMIN ROUTE --------------------
 export default function AdminRoute() {
   const [authorized, setAuthorized] = useState(false);
-  const [password, setPassword] = useState("");
+  const [password, setPassword]     = useState("");
 
   const handleLogin = () => {
     if (password === import.meta.env.VITE_ADMIN_PASSWORD) {
@@ -18,6 +19,7 @@ export default function AdminRoute() {
   return (
     <div className="max-w-md mx-auto p-6 mt-20">
       <h2 className="text-xl font-bold mb-4">Admin Login</h2>
+
       <input
         type="password"
         placeholder="Enter password"
@@ -25,6 +27,7 @@ export default function AdminRoute() {
         onChange={(e) => setPassword(e.target.value)}
         className="border p-2 w-full mb-4"
       />
+
       <button
         onClick={handleLogin}
         className="bg-blue-600 text-white px-4 py-2 rounded"

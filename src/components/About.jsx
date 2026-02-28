@@ -1,6 +1,14 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import FadeInStagger from "./FadeInStagger";
 
+// -------------------- SOCIAL LINKS --------------------
+const socialLinks = [
+  { href: "https://www.linkedin.com/in/aurelia-tan-32a504329", icon: <FaLinkedin /> },
+  { href: "https://github.com/aureliatann",                    icon: <FaGithub /> },
+  { href: "mailto:aureliatan7@gmail.com",                      icon: <FaEnvelope /> },
+];
+
+// -------------------- ABOUT --------------------
 export default function About() {
   return (
     <section id="about" className="px-4 lg:px-10 py-6">
@@ -29,30 +37,28 @@ export default function About() {
               href="/pdfs/Aurelia Tan.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#4e1f2f] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg shadow-lg transition transform duration-300 ease-in-out hover:bg-[#3b0f1b] hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
+              className="bg-[#4e1f2f] text-white px-8 py-2 rounded-2xl font-medium text-base sm:text-lg shadow-lg
+                         transition transform duration-300 ease-in-out
+                         hover:bg-[#3b0f1b] hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
             >
               Resume
             </a>
 
-            {[{
-              href: "https://www.linkedin.com/in/aurelia-tan-32a504329", icon: <FaLinkedin />
-            },{
-              href: "https://github.com/aureliatann", icon: <FaGithub />
-            },{
-              href: "mailto:aureliatan7@gmail.com", icon: <FaEnvelope />
-            }].map((item, idx) => (
+            {socialLinks.map((item, idx) => (
               <a
                 key={idx}
                 href={item.href}
                 target={item.href.startsWith("mailto") ? "_self" : "_blank"}
                 rel={item.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                className="text-[#4e1f2f] transition transform duration-300 ease-in-out hover:text-[#3b0f1b] hover:scale-105 hover:-translate-y-1 cursor-pointer"
+                className="text-[#4e1f2f] transition transform duration-300 ease-in-out
+                           hover:text-[#3b0f1b] hover:scale-105 hover:-translate-y-1 cursor-pointer"
               >
                 {item.icon}
               </a>
             ))}
           </div>
         </div>
+
       </FadeInStagger>
     </section>
   );

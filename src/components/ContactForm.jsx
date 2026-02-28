@@ -1,13 +1,20 @@
 import { useState } from "react";
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+// -------------------- INPUT CLASS --------------------
+const inputClass = `
+  font-body w-full px-3 py-2
+  bg-[#fbfaf8]/30
+  border-b-2
+  text-[#4e1f2f]
+  placeholder-[#4e1f2f]/60
+  rounded-md
+  transition
+`;
 
-  const [status, setStatus] = useState("");
+// -------------------- CONTACT FORM --------------------
+export default function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus]     = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,6 +22,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("Sending...");
 
     try {
       const res = await fetch("http://localhost:5050/contact", {
@@ -33,8 +41,11 @@ export default function ContactForm() {
         setStatus("Failed to send message.");
       }
     } catch {
-      setStatus("Failed to send message.");
+      setStatus("Error sending message.");
     }
+
+    // Clear message after 3 seconds
+    setTimeout(() => setStatus(""), 3000);
   };
 
   return (
@@ -47,26 +58,34 @@ export default function ContactForm() {
         <h2 className="text-6xl font-bold text-[#4e1f2f] scale-y-135">AT</h2>
         <h2 className="font-body text-3xl font-bold">Let's Connect!</h2>
         <p className="font-body text-base">
-          I’m currently open to opportunities and collaborations.<br />
+          I'm currently open to opportunities and collaborations.<br />
           Feel free to reach out using the contact form.
         </p>
       </div>
 
-      {/* Right side */}
+      {/* Right side - Contact Form */}
       <div className="flex-[6] flex justify-end items-center">
         <form
           className="w-full max-w-2xl bg-transparent rounded-2xl space-y-4"
           onSubmit={handleSubmit}
         >
-          {/* Status Message (Beige) */}
+          {/* Status Message */}
           {status && (
-            <p className="text-center font-body text-md mb-0 text-[#e4d9d1]">
+            <p
+              className="
+                text-[#e4d9d1] text-center
+                font-body text-sm
+                transition-opacity duration-300
+              "
+            >
               {status}
             </p>
           )}
+
           {/* Inputs */}
           <div className="flex gap-4 items-stretch h-full mt-3">
-            {/* Left column: Name + Email */}
+
+            {/* Left column: Name & Email */}
             <div className="flex flex-col gap-2.5 flex-1">
               <input
                 type="text"
@@ -74,33 +93,16 @@ export default function ContactForm() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="
-                  font-body w-full px-3 py-2
-                  bg-[#fbfaf8]/30
-                  border-b-2
-                  text-[#4e1f2f]
-                  placeholder-[#4e1f2f]/60 
-                  rounded-md
-                  transition
-                "
+                className={inputClass}
                 required
               />
-
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="
-                  font-body w-full px-3 py-2
-                  bg-[#fbfaf8]/30
-                  border-b-2
-                  text-[#4e1f2f]
-                  placeholder-[#4e1f2f]/60 
-                  rounded-md
-                  transition
-                "
+                className={inputClass}
                 required
               />
             </div>
@@ -112,22 +114,15 @@ export default function ContactForm() {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="
-                  font-body w-full h-full min-h-[95px] px-3 py-2
-                  bg-[#fbfaf8]/30
-                  border-b-2
-                  text-[#4e1f2f]
-                  placeholder-[#4e1f2f]/60 
-                  rounded-md
-                  transition
-                "
+                className={`${inputClass} min-h-[95px]`}
                 required
               />
             </div>
+
           </div>
 
-          {/* Heading + Button row */}
-          <div className="flex justify-between items-center mb-4">
+          {/* Heading + Submit Button */}
+          <div className="flex justify-between items-center mb-2">
             <h2 className="font-body text-[#e4d9d1] font-extrabold tracking-wider leading-tight text-3xl">
               (CONTACT ME)
             </h2>
@@ -137,15 +132,15 @@ export default function ContactForm() {
               className="
                 px-8 py-2 rounded-xl
                 bg-[#4e1f2f] text-[#e4d9d1] font-semibold
-                hover:bg-[#3b0f1b]
-                hover:scale-105 hover:-translate-y-1
                 transition transform duration-300 ease-in-out
+                hover:bg-[#3b0f1b] hover:scale-105 hover:-translate-y-1
                 shadow-lg hover:shadow-xl cursor-pointer
               "
             >
               Send Message
             </button>
           </div>
+
         </form>
       </div>
     </section>
